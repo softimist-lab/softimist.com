@@ -73,7 +73,7 @@ function HomePage() {
             {/* Stacked Carousel */}
             <div
               className="relative mx-auto select-none"
-              style={{ height: 'clamp(320px, 42vw, 540px)' }}
+              style={{ height: 'clamp(220px, 50vw, 540px)' }}
               onMouseEnter={carousel.pause}
               onMouseLeave={carousel.resume}
               {...carousel.touchHandlers}
@@ -291,7 +291,8 @@ function HomePage() {
 function DashboardMockup({ slide, position }: { slide: HeroSlide; position: SlidePosition }) {
   return (
     <div
-      className="absolute inset-x-[8%] inset-y-0"
+      className="carousel-slide absolute inset-x-0 inset-y-0 sm:inset-x-[8%]"
+      data-position={position}
       style={{
         ...slidePositionStyles[position],
         transition: 'transform 0.8s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.6s ease, box-shadow 0.8s ease',
