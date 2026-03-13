@@ -2,8 +2,8 @@ export const frontmatter = {
   title: 'What Is OTT Streaming? How Modern Video Infrastructure Really Works',
   description: 'Learn what OTT streaming is, how modern video infrastructure works, and why businesses across South Asia are building their own platforms with PlayMist.',
   date: '2026-02-15',
-  author: 'Tanjir Ahmed',
-  authorRole: 'CTO, Softimist Limited',
+  author: 'Tanjir Islam',
+  authorRole: 'Softimist Limited',
   coverImage: '/Playmist/image1.png',
   tags: ['OTT', 'Streaming', 'Video', 'Infrastructure'],
   slug: 'what-is-ott-streaming',
@@ -28,29 +28,11 @@ Every successful OTT platform rests on three fundamental pillars:
 
 When you press "Play" on a video, a remarkable chain of events happens in milliseconds:
 
-```
-Raw Video → Transcoding → Packaging → CDN → Adaptive Player → Your Screen
-```
 
 ### Step 1: Transcoding
 
 Raw video files are enormous — a single hour of 4K footage can be 300+ GB. Transcoding converts this into multiple quality levels:
 
-```javascript
-// PlayMist transcoding pipeline configuration
-const transcodingProfile = {
-  input: 's3://raw-content/movie-2024.mov',
-  outputs: [
-    { resolution: '3840x2160', bitrate: '15000k', codec: 'h265' },  // 4K
-    { resolution: '1920x1080', bitrate: '5000k', codec: 'h264' },   // 1080p
-    { resolution: '1280x720', bitrate: '2500k', codec: 'h264' },    // 720p
-    { resolution: '854x480', bitrate: '1000k', codec: 'h264' },     // 480p
-    { resolution: '640x360', bitrate: '500k', codec: 'h264' },      // 360p
-  ],
-  packaging: ['HLS', 'DASH'],
-  drm: ['widevine', 'fairplay'],
-}
-```
 
 ### Step 2: Adaptive Bitrate Streaming
 

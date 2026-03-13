@@ -2,8 +2,8 @@ export const frontmatter = {
   title: 'Content Aggregation at Scale: Building Unified Media Pipelines',
   description: 'Discover how PlayMist Aggregator unifies content from 150+ sources into a single API, with intelligent routing, rights management, and real-time sync.',
   date: '2026-01-20',
-  author: 'Tanjir Ahmed',
-  authorRole: 'CTO, Softimist Limited',
+  author: 'Tanjir Islam',
+  authorRole: 'Softimist Limited',
   coverImage: '/aggregaor/image1.png',
   tags: ['Aggregation', 'API', 'Media', 'Pipeline'],
   slug: 'content-aggregation-at-scale',
@@ -28,39 +28,11 @@ The result? Teams spend more time wrangling data than creating value.
 
 The Aggregator sits at the center of your content operations, providing a unified API layer:
 
-```
-Content Sources → Ingestion → Normalization → Enrichment → Distribution
-       ↑                                                        ↓
-   150+ Adapters              Rights Engine              Platform APIs
-```
 
 ### Source-Agnostic Ingestion
 
 Connect any content source with our pre-built adapters or create custom ones:
 
-```typescript
-// Connecting a new content source
-const source = await aggregator.sources.create({
-  name: 'BBC Content Feed',
-  type: 'mrss', // Media RSS
-  endpoint: 'https://feeds.bbc.com/content/v2',
-  auth: {
-    type: 'api_key',
-    key: process.env.BBC_API_KEY,
-  },
-  schedule: {
-    frequency: 'every_15_minutes',
-    timezone: 'UTC',
-  },
-  mapping: {
-    title: '$.item.title',
-    description: '$.item.description',
-    thumbnail: '$.item.media:thumbnail.@url',
-    duration: '$.item.media:content.@duration',
-    genre: '$.item.category',
-  },
-})
-```
 
 ### Metadata Normalization
 
@@ -87,30 +59,6 @@ Beyond basic normalization, the Aggregator enriches your content automatically:
 
 Content rights are perhaps the most complex part of media operations. The Aggregator handles:
 
-```typescript
-// Define a rights window
-const rights = await aggregator.rights.create({
-  contentId: 'movie-2024-001',
-  windows: [
-    {
-      platform: 'playmist-bd',
-      territory: ['BD'],
-      startDate: '2026-03-01',
-      endDate: '2027-03-01',
-      monetization: ['svod', 'tvod'],
-      exclusive: true,
-    },
-    {
-      platform: 'youtube',
-      territory: ['GLOBAL'],
-      startDate: '2027-03-01',
-      endDate: null, // perpetual
-      monetization: ['avod'],
-      exclusive: false,
-    },
-  ],
-})
-```
 
 The engine automatically:
 - Prevents content from publishing outside its rights window
@@ -133,35 +81,6 @@ All changes are tracked in an audit log, so you can always see what changed, whe
 
 The Aggregator exposes both REST and GraphQL APIs:
 
-```graphql
-query GetContent($filter: ContentFilter!) {
-  contents(filter: $filter, first: 20) {
-    edges {
-      node {
-        id
-        title
-        description
-        genres
-        duration
-        rights {
-          territory
-          platform
-          validUntil
-        }
-        enrichments {
-          tags
-          qualityScore
-          language
-        }
-      }
-    }
-    pageInfo {
-      hasNextPage
-      endCursor
-    }
-  }
-}
-```
 
 ### Webhooks & Events
 

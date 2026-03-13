@@ -2,8 +2,8 @@ export const frontmatter = {
   title: 'How Edushade Transforms Online Learning: A Technical Deep Dive',
   description: 'Edushade is built with a deep understanding of the South Asian education market while maintaining international standards. Discover the architecture behind our AI-powered LMS.',
   date: '2026-02-28',
-  author: 'Tanjir Ahmed',
-  authorRole: 'CTO, Softimist Limited',
+  author: 'Tanjir Islam',
+  authorRole: 'Softimist Limited',
   coverImage: '/edushade/image1.png',
   tags: ['EdTech', 'LMS', 'AI', 'Architecture'],
   slug: 'how-edushade-transforms-online-learning',
@@ -19,24 +19,6 @@ Unlike traditional LMS platforms that focus solely on content delivery, Edushade
 ### Adaptive Learning Engine
 
 At the core of Edushade lies our proprietary adaptive learning engine. It continuously analyzes learner behavior — time spent on modules, quiz performance, engagement patterns — and dynamically adjusts the curriculum in real time.
-
-```typescript
-// Simplified example of our adaptive scoring
-interface LearnerProfile {
-  strengths: string[]
-  gaps: string[]
-  pace: 'slow' | 'moderate' | 'fast'
-  engagementScore: number
-}
-
-function getNextModule(profile: LearnerProfile): Module {
-  const candidates = getAvailableModules()
-  return candidates
-    .filter(m => !profile.strengths.includes(m.topic))
-    .sort((a, b) => relevanceScore(b, profile) - relevanceScore(a, profile))
-    [0]
-}
-```
 
 ### Real-Time Analytics Dashboard
 
@@ -63,23 +45,6 @@ Our platform is built on a modern, cloud-native stack designed for scale:
 ### Multi-Tenant Architecture
 
 Edushade supports true multi-tenancy with complete data isolation. Each institution gets its own isolated environment with custom branding, domain, and configuration — all running on shared, cost-efficient infrastructure.
-
-```yaml
-# Tenant configuration example
-tenant:
-  id: "university-of-dhaka"
-  domain: "lms.du.edu.bd"
-  branding:
-    primaryColor: "#1B5E20"
-    logo: "/tenants/du/logo.svg"
-  features:
-    aiAdaptive: true
-    liveClasses: true
-    proctoring: true
-  limits:
-    maxStudents: 50000
-    storageGB: 500
-```
 
 ## Enterprise-Grade Security
 
