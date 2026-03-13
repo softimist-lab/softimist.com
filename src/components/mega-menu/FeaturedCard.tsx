@@ -33,7 +33,7 @@ export function FeaturedCard({
           href={ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="group/cta inline-flex items-center gap-1.5 rounded-lg bg-white/15 px-3.5 py-2 text-xs font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/25"
+          className="group/cta inline-flex items-center gap-1.5 rounded-lg bg-white/15 px-3.5 py-2 text-xs font-semibold text-white! backdrop-blur-sm transition-all hover:bg-white/25"
           onClick={onClose}
         >
           {ctaLabel}

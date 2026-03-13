@@ -147,28 +147,19 @@ a {
   transform: scaleX(1);
 }
 
-/* ── Mega Menu Animations ── */
+/* ── Logo Scroll ── */
 
-@keyframes mega-enter {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(8px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-  }
+@keyframes logo-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-@keyframes mega-exit {
-  from {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-50%) translateY(4px) scale(0.98);
-  }
+.logo-scroll {
+  animation: logo-scroll 25s linear infinite;
+}
+
+.logo-scroll:hover {
+  animation-play-state: paused;
 }
 
 /* Dark mode mega menu shadow override */
@@ -230,104 +221,16 @@ a {
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
-/* ── Circuit Grid (decorative background) ── */
+/* ── Hero Bubbles ── */
 
-.circuit-grid {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+@keyframes hero-bubble-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-20px) scale(1.05); opacity: 1; }
 }
 
-.circuit-grid::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent);
-}
-
-.circuit-grid::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
-  background-size: 80px 80px;
-  background-position: -0.5px -0.5px;
-  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent);
-}
-
-:root[data-theme="dark"] .circuit-grid::before,
-:root.dark .circuit-grid::before {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-}
-
-:root[data-theme="dark"] .circuit-grid::after,
-:root.dark .circuit-grid::after {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .circuit-grid::before {
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  }
-  :root:not([data-theme="light"]) .circuit-grid::after {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
-  }
-}
-
-/* Circuit pulse animations */
-
-.circuit-pulse-h {
-  position: fixed;
-  width: 120px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(253, 91, 32, 0.5), transparent);
-  animation: pulse-flow-h 4s linear infinite;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes pulse-flow-h {
-  0%   { left: -120px; opacity: 0; }
-  5%   { opacity: 1; }
-  95%  { opacity: 1; }
-  100% { left: 100%; opacity: 0; }
-}
-
-.circuit-pulse-v {
-  position: fixed;
-  width: 1px;
-  height: 120px;
-  background: linear-gradient(180deg, transparent, rgba(253, 91, 32, 0.5), transparent);
-  animation: pulse-flow-v 5s linear infinite;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@keyframes pulse-flow-v {
-  0%   { top: -120px; opacity: 0; }
-  5%   { opacity: 1; }
-  95%  { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-.circuit-pulse-h.alt {
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
-}
-
-.circuit-pulse-v.alt {
-  background: linear-gradient(180deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+.hero-bubble {
+  animation: hero-bubble-float 7s ease-in-out infinite;
+  filter: blur(40px);
 }
 
 /* ── Responsive mega menu ── */

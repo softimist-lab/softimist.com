@@ -13,16 +13,14 @@ function HomePage() {
 
   return (
     <main className="relative overflow-hidden">
-      {/* Circuit Grid Background */}
-      <div className="circuit-grid" style={{ position: 'fixed', inset: 0, zIndex: 0 }} />
-      <CircuitPulses />
-
       {/* Hero Section */}
       <section className="relative pb-10 pt-16 sm:pb-16 sm:pt-24">
+        <HeroBubbles />
         <div className="relative z-10 mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className={cn(displayTitleClass, 'rise-in mb-5 text-4xl font-extrabold leading-[1.08] tracking-tight text-(--ink) sm:text-5xl md:text-[3.5rem]')}>
-              AI-Powered EdTech & Media<br className="hidden sm:block" />
+            <h1 className={cn(displayTitleClass, 'rise-in mb-5 text-3xl font-extrabold leading-[1.12] tracking-tight text-(--ink) sm:text-5xl md:text-[3.5rem]')}>
+              AI-Powered EdTech & Media{' '}
+              <br className="hidden sm:block" />
               Infrastructure, Limitless Possibilities
             </h1>
             <p className="rise-in mx-auto mb-8 max-w-xl text-base leading-relaxed text-(--ink-soft)" style={{ animationDelay: '100ms' }}>
@@ -42,22 +40,33 @@ function HomePage() {
           {/* Product Tab Switcher + Carousel */}
           <div className="rise-in mx-auto mt-14 max-w-6xl sm:mt-20" style={{ animationDelay: '300ms' }}>
             <div className="mb-10 flex items-center justify-center">
-              <div className="inline-flex items-center gap-1 rounded-full border border-(--line) bg-(--surface) p-1">
-                {heroSlides.map((slide, i) => (
-                  <button
-                    key={slide.id}
-                    onClick={() => carousel.goToSlide(i)}
-                    className={cn(
-                      'flex items-center gap-2 rounded-full px-5 py-2 text-[13px] font-medium transition-all duration-300',
-                      i === carousel.activeSlide
-                        ? 'bg-(--color-primary) text-white shadow-sm'
-                        : 'text-(--ink-muted) hover:text-(--ink)',
-                    )}
-                  >
-                    <slide.icon size={18} strokeWidth={2} />
-                    <span className="hidden sm:inline">{slide.tab}</span>
-                  </button>
-                ))}
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-(--line) bg-(--surface) p-1">
+                {heroSlides.map((slide, i) => {
+                  const isActive = i === carousel.activeSlide
+                  return (
+                    <button
+                      key={slide.id}
+                      onClick={() => carousel.goToSlide(i)}
+                      className={cn(
+                        'relative flex items-center gap-2 overflow-hidden rounded-full px-5 py-2 text-[13px] font-medium transition-colors duration-300',
+                        isActive
+                          ? 'text-(--ink)'
+                          : 'text-(--ink-muted) hover:text-(--ink)',
+                      )}
+                    >
+                      {isActive && (
+                        <span
+                          className="absolute inset-0 rounded-full bg-(--color-primary)/12"
+                          style={{ transform: `scaleX(${carousel.progress})`, transformOrigin: 'left' }}
+                        />
+                      )}
+                      <span className="relative z-10 flex items-center gap-2">
+                        <slide.icon size={16} strokeWidth={2} className={cn(isActive && 'text-(--color-primary)')} />
+                        <span className="hidden sm:inline">{slide.tab}</span>
+                      </span>
+                    </button>
+                  )
+                })}
               </div>
             </div>
 
@@ -105,19 +114,21 @@ function HomePage() {
       {/* Trusted By */}
       <section className="relative z-10 border-b border-(--line) py-10">
         <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
-          <div className="flex flex-col items-center gap-8 sm:flex-row sm:gap-12">
+          <div className="flex flex-col items-center gap-6 sm:flex-row sm:gap-12">
             <p className="m-0 shrink-0 text-xs font-semibold uppercase tracking-[0.15em] text-(--ink-muted)">
               Trusted by 1000+<br />organizations globally
             </p>
-            <div className="flex flex-1 flex-wrap items-center justify-center gap-x-10 gap-y-4 sm:justify-between">
-              {trustedBy.map((name) => (
-                <span
-                  key={name}
-                  className="font-display text-sm font-bold tracking-wide text-(--ink-muted) opacity-50 transition-opacity hover:opacity-80"
-                >
-                  {name}
-                </span>
-              ))}
+            <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+              <div className="logo-scroll flex w-max items-center gap-12">
+                {[...trustedBy, ...trustedBy].map((client, i) => (
+                  <img
+                    key={`${client.name}-${i}`}
+                    src={client.logo}
+                    alt={client.name}
+                    className="h-5 max-w-24 shrink-0 object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -131,7 +142,7 @@ function HomePage() {
               <div className="h-px w-full bg-(--line)" />
             </div>
           )}
-          <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4 py-20 sm:py-28">
+          <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4 py-14 sm:py-20">
             <div className={cn(
               'grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16',
               idx % 2 !== 0 && '[&>*:first-child]:md:order-2 [&>*:last-child]:md:order-1',
@@ -148,7 +159,7 @@ function HomePage() {
                   href={product.cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold text-white transition-all hover:brightness-110"
+                  className="inline-flex items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-semibold text-white! transition-all hover:brightness-110"
                   style={{ background: product.accent }}
                 >
                   {product.cta.label}
@@ -166,7 +177,7 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
               {product.features.map((feat) => (
                 <div key={feat.title} className="group">
                   <div
@@ -185,9 +196,9 @@ function HomePage() {
       ))}
 
       {/* Services Section */}
-      <section className="relative z-10 py-20 sm:py-28" id="services">
+      <section className="relative z-10 py-14 sm:py-20" id="services">
         <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
             <span className={cn(kickerClass, 'mb-3 inline-block')}>What We Do</span>
             <h2 className={cn(displayTitleClass, 'mb-4 text-3xl font-bold text-(--ink) sm:text-4xl')}>
               End-to-End Digital Solutions
@@ -211,9 +222,9 @@ function HomePage() {
       </section>
 
       {/* Blog Section */}
-      <section className="relative z-10 py-20 sm:py-28">
+      <section className="relative z-10 py-14 sm:py-20">
         <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
-          <div className="mb-14 flex items-end justify-between">
+          <div className="mb-10 flex items-end justify-between">
             <div>
               <h2 className={cn(displayTitleClass, 'mb-2 text-3xl font-bold text-(--ink) sm:text-4xl')}>
                 Latest Insights & Updates
@@ -247,7 +258,7 @@ function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 sm:py-28">
+      <section className="relative py-14 sm:py-20">
         <div className="relative z-10 mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
           <div className="mx-auto max-w-3xl text-center">
             <span className={cn(kickerClass, 'mb-3 inline-block')}>Ready to Start?</span>
@@ -346,23 +357,14 @@ function BlogCard({ post }: { post: ReturnType<typeof getAllPosts>[number] }) {
   )
 }
 
-function CircuitPulses() {
+function HeroBubbles() {
   return (
-    <>
-      <div className="circuit-pulse-h" style={{ position: 'fixed', top: '80px', animationDelay: '0s', animationDuration: '4s' }} />
-      <div className="circuit-pulse-h" style={{ position: 'fixed', top: '240px', animationDelay: '1.2s', animationDuration: '3.5s' }} />
-      <div className="circuit-pulse-h" style={{ position: 'fixed', top: '400px', animationDelay: '2.5s', animationDuration: '4.5s' }} />
-      <div className="circuit-pulse-h alt" style={{ position: 'fixed', top: '160px', animationDelay: '0.8s', animationDuration: '5s' }} />
-      <div className="circuit-pulse-h alt" style={{ position: 'fixed', top: '320px', animationDelay: '3s', animationDuration: '3.8s' }} />
-      <div className="circuit-pulse-h" style={{ position: 'fixed', top: '480px', animationDelay: '1.8s', animationDuration: '4.2s' }} />
-      <div className="circuit-pulse-h" style={{ position: 'fixed', top: '640px', animationDelay: '0.6s', animationDuration: '3.8s' }} />
-      <div className="circuit-pulse-h alt" style={{ position: 'fixed', top: '800px', animationDelay: '2.2s', animationDuration: '4.6s' }} />
-      <div className="circuit-pulse-v" style={{ position: 'fixed', left: '10%', animationDelay: '0.5s', animationDuration: '5s' }} />
-      <div className="circuit-pulse-v" style={{ position: 'fixed', left: '25%', animationDelay: '2s', animationDuration: '4.5s' }} />
-      <div className="circuit-pulse-v alt" style={{ position: 'fixed', left: '40%', animationDelay: '1s', animationDuration: '5.5s' }} />
-      <div className="circuit-pulse-v" style={{ position: 'fixed', left: '55%', animationDelay: '3.2s', animationDuration: '4s' }} />
-      <div className="circuit-pulse-v alt" style={{ position: 'fixed', left: '70%', animationDelay: '0.3s', animationDuration: '4.8s' }} />
-      <div className="circuit-pulse-v" style={{ position: 'fixed', left: '85%', animationDelay: '1.7s', animationDuration: '5.2s' }} />
-    </>
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="hero-bubble absolute left-[10%] top-[15%] h-64 w-64 rounded-full bg-orange-400/10" style={{ animationDelay: '0s', animationDuration: '7s' }} />
+      <div className="hero-bubble absolute right-[8%] top-[10%] h-48 w-48 rounded-full bg-blue-400/10" style={{ animationDelay: '2s', animationDuration: '8s' }} />
+      <div className="hero-bubble absolute left-[25%] bottom-[10%] h-36 w-36 rounded-full bg-purple-400/10" style={{ animationDelay: '4s', animationDuration: '9s' }} />
+      <div className="hero-bubble absolute right-[20%] bottom-[20%] h-56 w-56 rounded-full bg-cyan-400/8" style={{ animationDelay: '1s', animationDuration: '7.5s' }} />
+      <div className="hero-bubble absolute left-[50%] top-[5%] h-40 w-40 rounded-full bg-orange-300/8" style={{ animationDelay: '3s', animationDuration: '8.5s' }} />
+    </div>
   )
 }

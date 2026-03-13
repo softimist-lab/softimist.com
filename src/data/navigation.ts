@@ -36,7 +36,7 @@ export const edushadeMenu: MegaMenuConfig = {
   trigger: 'Edushade',
   sections: [
     {
-      label: 'INDUSTRY COVERS',
+      label: 'INDUSTRY COVERAGE',
       items: [
         { icon: Brush, title: 'Content Creators', desc: 'Build & monetize your courses' },
         { icon: Store, title: 'Marketplace', desc: 'Discover & sell learning content' },
@@ -76,8 +76,8 @@ export const edushadeMenu: MegaMenuConfig = {
   ],
   featured: {
     icon: BookOpen,
-    title: 'AI-Powered Learning',
-    description: '42+ courses, 65K+ students — explore how our platform adapts to every learner.',
+    title: 'All-in-One EdTech SaaS',
+    description: 'Launch and scale your own learning platform — courses, live classes, community, and more under your brand.',
     ctaLabel: 'Explore Edushade',
     ctaHref: 'https://edushade.com',
   },
@@ -133,6 +133,5 @@ export const simpleLinks: NavSimpleLink[] = [
 ]
 
 export const headerActions = {
-  login: { label: 'Login', href: 'https://edushade.com' },
   getStarted: { label: 'Get Started', href: 'https://edushade.com' },
 }

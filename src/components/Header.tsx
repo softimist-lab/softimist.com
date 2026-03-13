@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { ChevronDown, ArrowRight, Play, Monitor, Menu, X } from 'lucide-react'
 import { cn } from '#/lib/utils'
 import { useMegaMenu } from '#/hooks/use-mega-menu'
@@ -16,8 +16,14 @@ export default function Header() {
   const [mobileEdushadeOpen, setMobileEdushadeOpen] = useState(false)
   const [mobilePlaymistOpen, setMobilePlaymistOpen] = useState(false)
 
-  const edushade = useMegaMenu()
-  const playmist = useMegaMenu()
+  const edushadeRef = useRef<{ close: () => void }>({ close: () => {} })
+  const playmistRef = useRef<{ close: () => void }>({ close: () => {} })
+
+  const edushade = useMegaMenu([playmistRef.current])
+  const playmist = useMegaMenu([edushadeRef.current])
+
+  edushadeRef.current = edushade
+  playmistRef.current = playmist
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -138,16 +144,8 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Right — Login + Get Started */}
+        {/* Right — Get Started */}
         <div className="flex items-center gap-2.5">
-          <a
-            href={headerActions.login.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden rounded-lg border border-(--line-strong) bg-transparent px-4 py-2 text-sm font-medium text-(--ink) transition-all hover:border-(--color-primary) hover:text-(--color-primary) sm:inline-flex"
-          >
-            {headerActions.login.label}
-          </a>
           <a
             href={headerActions.getStarted.href}
             target="_blank"
@@ -170,7 +168,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="border-t border-(--line) bg-(--surface-strong) px-4 py-4 backdrop-blur-xl md:hidden">
+        <div className="max-h-[calc(100dvh-60px)] overflow-y-auto border-t border-(--line) bg-(--surface-strong) px-4 py-4 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-1">
             <MobileAccordion
               label="Edushade"
@@ -201,20 +199,12 @@ export default function Header() {
               </Link>
             ))}
 
-            <div className="mt-3 flex gap-2">
-              <a
-                href={headerActions.login.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 rounded-lg border border-(--line-strong) py-2.5 text-center text-sm font-medium text-(--ink)"
-              >
-                {headerActions.login.label}
-              </a>
+            <div className="mt-3">
               <a
                 href={headerActions.getStarted.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={btnPrimaryClass('flex-1 justify-center py-2.5 text-sm')}
+                className={btnPrimaryClass('w-full justify-center py-2.5 text-sm')}
               >
                 {headerActions.getStarted.label}
               </a>
@@ -296,10 +286,10 @@ function MobileAccordion({
 
 function MobileMegaMenuContent({ config, onClose }: { config: MegaMenuConfig; onClose: () => void }) {
   return (
-    <div className="mb-2 ml-1 flex flex-col gap-0.5 border-l-2 border-(--line) pl-3">
+    <div className="mb-2 ml-1 flex flex-col border-l-2 border-(--line) pl-3">
       {config.sections.map((section) => (
         <div key={section.label}>
-          <span className="mt-2 block px-2 pb-1 pt-2 text-[0.65rem] font-bold uppercase tracking-wider text-(--ink-muted)">
+          <span className="mt-1.5 block px-2 pb-0.5 pt-1.5 text-[0.6rem] font-bold uppercase tracking-wider text-(--ink-muted)">
             {section.label}
           </span>
           {section.items.map((f) => (
@@ -307,10 +297,10 @@ function MobileMegaMenuContent({ config, onClose }: { config: MegaMenuConfig; on
               key={f.title}
               to="/products"
               hash={section.hash}
-              className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-(--ink-soft) transition-colors hover:bg-(--bg-subtle) hover:text-(--ink)"
+              className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-(--ink-soft) transition-colors hover:bg-(--bg-subtle) hover:text-(--ink)"
               onClick={onClose}
             >
-              <f.icon size={15} strokeWidth={1.8} />
+              <f.icon size={14} strokeWidth={1.8} />
               {f.title}
             </Link>
           ))}
@@ -320,7 +310,7 @@ function MobileMegaMenuContent({ config, onClose }: { config: MegaMenuConfig; on
         href={config.featured.ctaHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-1 flex items-center gap-2 rounded-md px-2 py-2 text-sm font-medium text-(--color-primary)"
+        className="mt-1 flex items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium text-(--color-primary)"
       >
         {config.featured.ctaLabel}
         <ArrowRight size={14} />

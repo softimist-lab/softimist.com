@@ -2,7 +2,9 @@ import { useState, useRef, useCallback } from 'react'
 
 const CLOSE_DELAY_MS = 200
 
-export function useMegaMenu() {
+type CloseCallback = () => void
+
+export function useMegaMenu(siblings: { close: CloseCallback }[] = []) {
   const [open, setOpen] = useState(false)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -11,16 +13,35 @@ export function useMegaMenu() {
       clearTimeout(timer.current)
       timer.current = null
     }
+    // Instantly close any sibling menus before opening this one
+    for (const sibling of siblings) {
+      sibling.close()
+    }
     setOpen(true)
-  }, [])
+  }, [siblings])
 
   const leave = useCallback(() => {
     timer.current = setTimeout(() => setOpen(false), CLOSE_DELAY_MS)
   }, [])
 
-  const close = useCallback(() => setOpen(false), [])
+  const close = useCallback(() => {
+    if (timer.current) {
+      clearTimeout(timer.current)
+      timer.current = null
+    }
+    setOpen(false)
+  }, [])
 
-  const toggle = useCallback(() => setOpen((v) => !v), [])
+  const toggle = useCallback(() => {
+    setOpen((v) => {
+      if (!v) {
+        for (const sibling of siblings) {
+          sibling.close()
+        }
+      }
+      return !v
+    })
+  }, [siblings])
 
   return { open, enter, leave, close, toggle } as const
 }

@@ -43,7 +43,7 @@ export function navLinkClass(isActive: boolean = false) {
 
 export function btnPrimaryClass(className?: string) {
   return cn(
-    'inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm text-white',
+    'inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm text-white!',
     'bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)]',
     'shadow-[0_4px_14px_rgba(249,115,22,0.3)]',
     'transition-all duration-200 cursor-pointer border-none',

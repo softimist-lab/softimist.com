@@ -41,8 +41,12 @@ export const slidePositionStyles: Record<SlidePosition, React.CSSProperties> = {
 export function useCarousel(totalSlides: number) {
   const [activeSlide, setActiveSlide] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [progress, setProgress] = useState(0)
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
+  const progressRef = useRef(0)
+  const lastTickRef = useRef(0)
+  const rafRef = useRef<number>(0)
 
   const nextSlide = useCallback(() => {
     setActiveSlide((prev) => (prev + 1) % totalSlides)
@@ -52,31 +56,70 @@ export function useCarousel(totalSlides: number) {
     setActiveSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
   }, [totalSlides])
 
+  const resetProgress = useCallback(() => {
+    progressRef.current = 0
+    setProgress(0)
+  }, [])
+
   const goToSlide = useCallback((index: number) => {
     setActiveSlide(index)
+    resetProgress()
     setIsPaused(true)
     setTimeout(() => setIsPaused(false), PAUSE_AFTER_INTERACTION_MS)
-  }, [])
+  }, [resetProgress])
 
   const interactAndNavigate = useCallback(
     (direction: 'next' | 'prev') => {
       if (direction === 'next') nextSlide()
       else prevSlide()
+      resetProgress()
       setIsPaused(true)
       setTimeout(() => setIsPaused(false), PAUSE_AFTER_INTERACTION_MS)
     },
-    [nextSlide, prevSlide],
+    [nextSlide, prevSlide, resetProgress],
   )
 
   const pause = useCallback(() => setIsPaused(true), [])
   const resume = useCallback(() => setIsPaused(false), [])
 
-  // Auto-slide
+  // Progress animation + auto-slide via rAF
   useEffect(() => {
-    if (isPaused) return
-    const timer = setInterval(nextSlide, AUTO_SLIDE_MS)
-    return () => clearInterval(timer)
-  }, [isPaused, nextSlide])
+    if (isPaused) {
+      lastTickRef.current = 0
+      return
+    }
+
+    lastTickRef.current = 0
+
+    const tick = (timestamp: number) => {
+      if (lastTickRef.current === 0) {
+        lastTickRef.current = timestamp
+      }
+
+      const delta = timestamp - lastTickRef.current
+      lastTickRef.current = timestamp
+
+      progressRef.current += delta / AUTO_SLIDE_MS
+      if (progressRef.current >= 1) {
+        progressRef.current = 0
+        setProgress(0)
+        setActiveSlide((prev) => (prev + 1) % totalSlides)
+      } else {
+        setProgress(progressRef.current)
+      }
+
+      rafRef.current = requestAnimationFrame(tick)
+    }
+
+    rafRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [isPaused, totalSlides])
+
+  // Reset progress when active slide changes (from manual navigation)
+  useEffect(() => {
+    progressRef.current = 0
+    setProgress(0)
+  }, [activeSlide])
 
   // Touch handlers
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
@@ -112,6 +155,7 @@ export function useCarousel(totalSlides: number) {
   return {
     activeSlide,
     isPaused,
+    progress,
     nextSlide: () => interactAndNavigate('next'),
     prevSlide: () => interactAndNavigate('prev'),
     goToSlide,

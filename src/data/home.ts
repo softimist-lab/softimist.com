@@ -87,13 +87,13 @@ export const heroSlides: HeroSlide[] = [
 ]
 
 export const trustedBy = [
-  'Apex Group',
-  'ShikhoTech',
-  'Ostad',
-  'ImpactHQ',
-  'BrightPath',
-  'EduNova',
-  'StreamCore',
+  { name: 'ESL', logo: '/clients/ESL.png' },
+  { name: 'Global Brand', logo: '/clients/global-brand.png' },
+  { name: 'Impact', logo: '/clients/impact.png' },
+  { name: 'Ostad', logo: '/clients/ostad.png' },
+  { name: 'Shikho', logo: '/clients/shikho.png' },
+  { name: 'Synapse', logo: '/clients/Synapse.webp' },
+  { name: 'Taibah', logo: '/clients/taibah.svg' },
 ]
 
 export const productShowcases: ProductShowcase[] = [
@@ -178,7 +178,7 @@ export const homeServices: HomeService[] = [
 ]
 
 export const productImages: Record<string, string> = {
-  edushade: '/edushade/image1.svg',
+  edushade: '/edushade/image1.png',
   playmist: '/Playmist/image1.png',
   aggregator: '/aggregaor/image1.png',
 }
