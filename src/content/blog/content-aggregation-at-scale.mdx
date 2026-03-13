@@ -1,0 +1,189 @@
+export const frontmatter = {
+  title: 'Content Aggregation at Scale: Building Unified Media Pipelines',
+  description: 'Discover how PlayMist Aggregator unifies content from 150+ sources into a single API, with intelligent routing, rights management, and real-time sync.',
+  date: '2026-01-20',
+  author: 'Tanjir Ahmed',
+  authorRole: 'CTO, Softimist Limited',
+  coverImage: '/aggregaor/image1.png',
+  tags: ['Aggregation', 'API', 'Media', 'Pipeline'],
+  slug: 'content-aggregation-at-scale',
+  readTime: '7 min read',
+}
+
+In the modern media landscape, content comes from everywhere — studios, independent creators, news agencies, sports leagues, user-generated platforms. Managing this flood of content across multiple distribution channels is one of the hardest engineering challenges in media technology. This is the problem **PlayMist Aggregator** was built to solve.
+
+## The Content Chaos Problem
+
+Most media companies today deal with:
+
+- **Dozens of content sources** — each with different formats, APIs, and metadata schemas
+- **Complex rights windows** — content availability varies by region, time, and platform
+- **Metadata inconsistency** — one source calls it "genre", another calls it "category"
+- **Manual workflows** — copy-pasting between spreadsheets and CMS platforms
+- **Distribution complexity** — each platform (Netflix, YouTube, local OTT) has unique requirements
+
+The result? Teams spend more time wrangling data than creating value.
+
+## How PlayMist Aggregator Works
+
+The Aggregator sits at the center of your content operations, providing a unified API layer:
+
+```
+Content Sources → Ingestion → Normalization → Enrichment → Distribution
+       ↑                                                        ↓
+   150+ Adapters              Rights Engine              Platform APIs
+```
+
+### Source-Agnostic Ingestion
+
+Connect any content source with our pre-built adapters or create custom ones:
+
+```typescript
+// Connecting a new content source
+const source = await aggregator.sources.create({
+  name: 'BBC Content Feed',
+  type: 'mrss', // Media RSS
+  endpoint: 'https://feeds.bbc.com/content/v2',
+  auth: {
+    type: 'api_key',
+    key: process.env.BBC_API_KEY,
+  },
+  schedule: {
+    frequency: 'every_15_minutes',
+    timezone: 'UTC',
+  },
+  mapping: {
+    title: '$.item.title',
+    description: '$.item.description',
+    thumbnail: '$.item.media:thumbnail.@url',
+    duration: '$.item.media:content.@duration',
+    genre: '$.item.category',
+  },
+})
+```
+
+### Metadata Normalization
+
+Raw metadata from different sources is messy. The Aggregator normalizes everything into a consistent schema:
+
+| Source Field | Normalized Field | Type |
+|-------------|-----------------|------|
+| `title`, `name`, `headline` | `content.title` | string |
+| `desc`, `description`, `synopsis` | `content.description` | string |
+| `genre`, `category`, `type` | `content.genres[]` | string[] |
+| `dur`, `duration`, `length` | `content.duration` | number (seconds) |
+| `rating`, `mpaa`, `certification` | `content.ratings[]` | Rating[] |
+
+### AI-Powered Enrichment
+
+Beyond basic normalization, the Aggregator enriches your content automatically:
+
+- **Auto-tagging** — AI analyzes thumbnails and descriptions to generate relevant tags
+- **Language detection** — Identifies content language from audio tracks and metadata
+- **Quality scoring** — Rates metadata completeness and flags issues
+- **Duplicate detection** — Identifies the same content from multiple sources
+
+## Rights Management Engine
+
+Content rights are perhaps the most complex part of media operations. The Aggregator handles:
+
+```typescript
+// Define a rights window
+const rights = await aggregator.rights.create({
+  contentId: 'movie-2024-001',
+  windows: [
+    {
+      platform: 'playmist-bd',
+      territory: ['BD'],
+      startDate: '2026-03-01',
+      endDate: '2027-03-01',
+      monetization: ['svod', 'tvod'],
+      exclusive: true,
+    },
+    {
+      platform: 'youtube',
+      territory: ['GLOBAL'],
+      startDate: '2027-03-01',
+      endDate: null, // perpetual
+      monetization: ['avod'],
+      exclusive: false,
+    },
+  ],
+})
+```
+
+The engine automatically:
+- Prevents content from publishing outside its rights window
+- Alerts teams before rights expire
+- Handles territory-based restrictions
+- Manages exclusivity conflicts across platforms
+
+## Real-Time Sync & Conflict Resolution
+
+When the same content exists in multiple sources, conflicts are inevitable. The Aggregator uses a priority-based resolution system:
+
+1. **Source priority** — Higher-priority sources win on conflicting fields
+2. **Recency** — More recently updated data takes precedence
+3. **Completeness** — The richer metadata record wins
+4. **Manual override** — Editorial team can always override automated decisions
+
+All changes are tracked in an audit log, so you can always see what changed, when, and why.
+
+## Developer-First API
+
+The Aggregator exposes both REST and GraphQL APIs:
+
+```graphql
+query GetContent($filter: ContentFilter!) {
+  contents(filter: $filter, first: 20) {
+    edges {
+      node {
+        id
+        title
+        description
+        genres
+        duration
+        rights {
+          territory
+          platform
+          validUntil
+        }
+        enrichments {
+          tags
+          qualityScore
+          language
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
+```
+
+### Webhooks & Events
+
+Subscribe to real-time events for automated workflows:
+
+- `content.created` — New content ingested
+- `content.updated` — Metadata changed
+- `rights.expiring` — Rights window closing in 30/7/1 days
+- `distribution.failed` — Platform delivery error
+- `quality.alert` — Metadata quality dropped below threshold
+
+## Distribution Intelligence
+
+Smart routing ensures content reaches the right platform in the right format:
+
+- **Format transformation** — Auto-convert metadata to each platform's required schema
+- **Asset transcoding** — Resize thumbnails, re-encode trailers per platform specs
+- **Geo-routing** — Route content based on territory rights
+- **Scheduling** — Queue distributions for optimal timing
+
+## Getting Started
+
+PlayMist Aggregator is available as a standalone API or integrated with the full PlayMist OTT platform. Start with our sandbox environment and connect your first source in minutes.
+
+[Explore the API documentation](https://playmist-aggr.softimist.com/docs) or [request a demo](https://softimist.com/contact) to see how Aggregator can unify your content operations.
