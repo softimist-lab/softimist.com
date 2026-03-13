@@ -1,4 +1,4 @@
-Welcome to your new TanStack Start app! 
+# softimist.com
 
 # Getting Started
 
