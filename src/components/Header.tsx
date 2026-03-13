@@ -146,14 +146,12 @@ export default function Header() {
 
         {/* Right — Get Started */}
         <div className="flex items-center gap-2.5">
-          <a
-            href={headerActions.getStarted.href}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/contact"
             className={btnPrimaryClass('hidden py-2 text-sm sm:inline-flex')}
           >
             {headerActions.getStarted.label}
-          </a>
+          </Link>
 
           {/* Mobile hamburger */}
           <button

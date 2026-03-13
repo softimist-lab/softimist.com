@@ -92,6 +92,7 @@ export interface HomeService {
 export interface ProductFeature {
   title: string
   desc: string
+  icon?: LucideIcon
 }
 
 export interface ProductStat {
@@ -99,14 +100,34 @@ export interface ProductStat {
   label: string
 }
 
+export interface ProductUseCase {
+  title: string
+  desc: string
+  icon: LucideIcon
+}
+
+export interface ProductFAQ {
+  question: string
+  answer: string
+}
+
+export interface ProductHighlight {
+  title: string
+  desc: string
+  stats?: { value: string; label: string }[]
+}
+
 export interface Product {
   id: string
   name: string
   tagline: string
+  headline: string
   description: string
-  longDescription: string
   features: ProductFeature[]
   stats: ProductStat[]
+  useCases: ProductUseCase[]
+  faq: ProductFAQ[]
+  highlights: ProductHighlight[]
   color: string
   accentColor: string
   href: string

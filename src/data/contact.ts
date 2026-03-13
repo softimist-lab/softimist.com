@@ -1,23 +1,23 @@
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
 import type { ContactInfo, ContactSubject, ContactFormData } from '#/types'
 
 export const contactInfo: ContactInfo[] = [
   {
-    title: 'Email Us',
-    value: 'info@softimist.com',
-    description: 'Send us an email anytime. We usually respond within 24 hours.',
-    icon: Mail,
-  },
-  {
     title: 'Call Us',
     value: '+880 1635-465676',
-    description: 'Available Monday to Friday, 9am to 6pm BST.',
+    description: 'Talk to Us Anytime, 24/7',
     icon: Phone,
   },
   {
-    title: 'Visit Us',
-    value: 'Dhaka, Bangladesh',
-    description: 'Our office is located in the heart of Dhaka.',
+    title: 'Email Us',
+    value: 'info@softimist.com',
+    description: 'Chat with Our Experts',
+    icon: Mail,
+  },
+  {
+    title: 'Bangladesh Operations',
+    value: 'Softimist Limited',
+    description: 'Dhaka, Bangladesh',
     icon: MapPin,
   },
 ]
