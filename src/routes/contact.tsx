@@ -1,16 +1,20 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { cn } from '#/lib/utils'
-import { contactInfo, contactSubjects } from '#/data/contact'
+import { contactInfo } from '#/data/contact'
 import { useContactForm } from '#/hooks/use-contact-form'
 import { cardClass, kickerClass, displayTitleClass, gradientTextClass } from '#/lib/styles'
+import { CheckCircle, X, Loader2 } from 'lucide-react'
 
 export const Route = createFileRoute('/contact')({ component: ContactPage })
 
 function ContactPage() {
-  const { formData, handleChange, handleSubmit } = useContactForm()
+  const { formData, handleChange, handleSubmit, status, errorMessage, resetStatus } = useContactForm()
 
   return (
     <main>
+      {/* Success Popup */}
+      {status === 'success' && <SuccessPopup onClose={resetStatus} />}
+
       {/* Hero — two-column: left text + right form */}
       <section className="relative overflow-hidden pb-14 pt-20 sm:pb-20 sm:pt-28">
         <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2">
@@ -36,7 +40,6 @@ function ContactPage() {
                 Get personalized recommendations, technical support, and pricing tailored to
                 your business requirements.
               </p>
-
             </div>
 
             {/* Right — contact form */}
@@ -90,12 +93,32 @@ function ContactPage() {
                       Privacy Policy
                     </Link>
                   </p>
+
+                  {status === 'error' && (
+                    <p className="rounded-lg bg-red-50 px-4 py-2.5 text-sm text-red-600 dark:bg-red-950/30 dark:text-red-400">
+                      {errorMessage}
+                    </p>
+                  )}
+
                   <div className="flex justify-end">
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 rounded-xl bg-linear-to-br from-(--color-primary) to-(--color-primary-dark) px-7 py-2.5 text-sm font-semibold text-white! shadow-[0_4px_14px_rgba(249,115,22,0.3)] transition-all duration-200 hover:-translate-y-px hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)]"
+                      disabled={status === 'sending'}
+                      className={cn(
+                        'inline-flex items-center gap-2 rounded-xl bg-linear-to-br from-(--color-primary) to-(--color-primary-dark) px-7 py-2.5 text-sm font-semibold text-white! shadow-[0_4px_14px_rgba(249,115,22,0.3)] transition-all duration-200',
+                        status === 'sending'
+                          ? 'cursor-not-allowed opacity-70'
+                          : 'hover:-translate-y-px hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)]',
+                      )}
                     >
-                      Submit Info
+                      {status === 'sending' ? (
+                        <>
+                          <Loader2 size={16} className="animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        'Submit Info'
+                      )}
                     </button>
                   </div>
                 </form>
@@ -169,6 +192,45 @@ function ContactPage() {
   )
 }
 
+/* ── Success Popup ── */
+
+function SuccessPopup({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={onClose}>
+      <div
+        className="animate-in fade-in zoom-in-95 relative mx-4 w-full max-w-md rounded-2xl border border-(--line) bg-(--bg-base) p-8 shadow-2xl sm:p-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-lg text-(--ink-muted) transition-colors hover:bg-(--bg-subtle) hover:text-(--ink)"
+        >
+          <X size={18} />
+        </button>
+        <div className="text-center">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-950/40 dark:text-green-400">
+            <CheckCircle size={32} strokeWidth={1.8} />
+          </div>
+          <h3 className={cn(displayTitleClass, 'mb-2 text-xl font-bold text-(--ink) sm:text-2xl')}>
+            Message Sent!
+          </h3>
+          <p className="mb-6 text-sm leading-relaxed text-(--ink-soft)">
+            Thank you for reaching out. Our team will review your message and get back to you within 24 hours.
+          </p>
+          <button
+            onClick={onClose}
+            className="inline-flex items-center rounded-xl bg-linear-to-br from-(--color-primary) to-(--color-primary-dark) px-7 py-2.5 text-sm font-semibold text-white! shadow-[0_4px_14px_rgba(249,115,22,0.3)] transition-all duration-200 hover:-translate-y-px hover:shadow-[0_6px_20px_rgba(249,115,22,0.4)]"
+          >
+            Got it
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ── Form Field ── */
+
 function FormField({
   label,
   name,
@@ -205,6 +267,8 @@ function FormField({
     </div>
   )
 }
+
+/* ── CTA Background ── */
 
 function CTABackground() {
   return (

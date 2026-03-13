@@ -1,9 +1,12 @@
 import { useState, useCallback } from 'react'
 import type { ContactFormData } from '#/types'
 import { defaultFormData } from '#/data/contact'
+import { sendContactEmail } from '#/server/send-email'
 
 export function useContactForm() {
   const [formData, setFormData] = useState<ContactFormData>({ ...defaultFormData })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -14,13 +17,34 @@ export function useContactForm() {
   )
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault()
-      alert('Thank you for your message! We will get back to you soon.')
-      setFormData({ ...defaultFormData })
+      setStatus('sending')
+      setErrorMessage('')
+
+      try {
+        await sendContactEmail({
+          data: {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.company,
+            message: formData.message,
+          },
+        })
+        setStatus('success')
+        setFormData({ ...defaultFormData })
+      } catch {
+        setStatus('error')
+        setErrorMessage('Something went wrong. Please try again or email us directly.')
+      }
     },
-    [],
+    [formData],
   )
 
-  return { formData, handleChange, handleSubmit } as const
+  const resetStatus = useCallback(() => {
+    setStatus('idle')
+    setErrorMessage('')
+  }, [])
+
+  return { formData, handleChange, handleSubmit, status, errorMessage, resetStatus } as const
 }
