@@ -47,7 +47,8 @@ export default function Header() {
       <nav className="mx-auto flex w-[min(1200px,calc(100%-2rem))] items-center justify-between px-4 py-3">
         {/* Logo */}
         <Link to="/" className="flex shrink-0 items-center no-underline">
-          <img src="/logo-black.svg" alt="Softimist" className="h-7 w-auto sm:h-8" />
+          <img src="/logo-black.svg" alt="Softimist" className="h-7 w-auto sm:h-8 dark:hidden" />
+          <img src="/logo-white.png" alt="Softimist" className="hidden h-7 w-auto sm:h-8 dark:block" />
         </Link>
 
         {/* Desktop Nav */}

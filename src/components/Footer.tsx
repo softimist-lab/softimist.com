@@ -18,10 +18,10 @@ export default function Footer() {
       {/* Watermark logo */}
       <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-center overflow-hidden pt-6">
         <img
-          src="/logo.png"
+          src="/logo-white.png"
           alt=""
           aria-hidden="true"
-          className="h-auto w-4/5 max-w-[900px] opacity-[0.03] grayscale"
+          className="h-auto w-4/5 max-w-[900px] opacity-[0.04]"
         />
       </div>
 
