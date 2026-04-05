@@ -19,7 +19,9 @@ const config = defineConfig({
       remarkPlugins: [remarkGfm],
     }),
     tanstackStart(),
-    nitro(),
+    nitro({
+      serverDir: './server',
+    }),
     viteReact(),
   ],
 });

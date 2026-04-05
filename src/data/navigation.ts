@@ -130,6 +130,7 @@ export const simpleLinks: NavSimpleLink[] = [
   { to: '/about', label: 'About Us' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact' },
+  { to: '/careers', label: 'Careers' },
 ]
 
 export const headerActions = {

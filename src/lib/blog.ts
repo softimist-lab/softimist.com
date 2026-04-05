@@ -15,7 +15,7 @@ import { frontmatter as post1 } from '../content/blog/how-edushade-transforms-on
 import { frontmatter as post2 } from '../content/blog/what-is-ott-streaming.mdx'
 import { frontmatter as post3 } from '../content/blog/content-aggregation-at-scale.mdx'
 
-const allPosts: BlogPost[] = [post1, post2, post3]
+const allPosts = [post1, post2, post3] as unknown as BlogPost[]
 
 export function getAllPosts(): BlogPost[] {
   return allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

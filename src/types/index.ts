@@ -238,6 +238,32 @@ export interface TocItem {
   level: number
 }
 
+/* ── Careers ── */
+
+export interface CareerPost {
+  title: string
+  slug: string
+  department: string
+  location: string
+  type: string
+  experience: string
+  description: string
+  date: string
+  status: 'active' | 'inactive'
+  salary?: string
+}
+
+export interface CareerBenefit {
+  title: string
+  description: string
+  icon: LucideIcon
+}
+
+export interface CareerFAQ {
+  question: string
+  answer: string
+}
+
 /* ── Shared ── */
 
 export type SlidePosition = 'center' | 'left' | 'right' | 'hidden'
