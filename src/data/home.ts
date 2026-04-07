@@ -118,7 +118,7 @@ export const productShowcases: ProductShowcase[] = [
     headline: 'Stream Everything. Beautifully.',
     description:
       'A next-generation OTT platform for live TV, movies, and series. PlayMist delivers adaptive bitrate streaming, DRM protection, and a stunning viewer experience across every device and screen size.',
-    cta: { label: 'Learn more', href: 'https://playmist.softimist.com' },
+    cta: { label: 'Learn more', href: '#' }, //https://playmist.softimist.com
     accent: '#8B5CF6',
     features: [
       { icon: Play, title: 'Adaptive Streaming', desc: 'HLS & DASH with intelligent bitrate switching for buffer-free playback on any connection.' },
@@ -133,7 +133,7 @@ export const productShowcases: ProductShowcase[] = [
     headline: 'Unify Your Content Pipeline',
     description:
       'Aggregate, normalize, and distribute content across platforms with a single powerful API. From metadata enrichment to rights management, the Aggregator is the backbone of your content operations.',
-    cta: { label: 'Learn more', href: 'https://playmist-aggr.softimist.com' },
+    cta: { label: 'Learn more', href: '#' }, //https://playmist-aggr.softimist.com
     accent: '#3B82F6',
     features: [
       { icon: Layers, title: 'Source Agnostic Ingestion', desc: 'Connect 150+ content sources with pre-built adapters and custom pipeline configuration.' },
@@ -179,6 +179,6 @@ export const homeServices: HomeService[] = [
 
 export const productImages: Record<string, string> = {
   edushade: '/edushade/image1.png',
-  playmist: '/Playmist/image1.png',
-  aggregator: '/aggregaor/image1.png',
+  playmist: '/placeholder/playmist.svg',
+  aggregator: '/placeholder/aggregator.svg',
 }

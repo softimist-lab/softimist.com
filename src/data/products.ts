@@ -160,7 +160,7 @@ export const products: Product[] = [
     ],
     color: 'from-purple-500 to-pink-400',
     accentColor: '#A855F7',
-    href: 'https://playmist.softimist.com',
+    href: '#', //https://playmist.softimist.com
     icon: Play,
   },
   {
@@ -225,7 +225,7 @@ export const products: Product[] = [
     ],
     color: 'from-orange-500 to-amber-400',
     accentColor: '#F97316',
-    href: 'https://playmist-aggr.softimist.com',
+    href: '', //https://playmist-aggr.softimist.com
     icon: Monitor,
   },
 ]

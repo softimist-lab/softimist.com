@@ -121,7 +121,7 @@ export const playmistMenu: MegaMenuConfig = {
     title: 'Enterprise Streaming',
     description: 'Launch your own Netflix-like OTT service with DRM, live TV, and global payment support.',
     ctaLabel: 'Explore PlayMist',
-    ctaHref: 'https://playmist.softimist.com',
+    ctaHref: '#', //https://playmist.softimist.com
   },
   gradient: 'bg-gradient-to-br from-purple-500 via-violet-600 to-pink-500',
 }
