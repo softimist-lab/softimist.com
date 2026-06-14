@@ -15,8 +15,9 @@ export interface CareerPost {
 import { frontmatter as job1 } from '../content/careers/senior-fullstack-engineer.mdx'
 import { frontmatter as job2 } from '../content/careers/devops-engineer.mdx'
 import { frontmatter as job3 } from '../content/careers/junior-flutter-developer.mdx'
+import { frontmatter as job4 } from '../content/careers/sqa-engineer.mdx'
 
-const allJobs = [job1, job2, job3] as unknown as CareerPost[]
+const allJobs = [job1, job2, job3, job4] as unknown as CareerPost[]
 
 export function getActiveJobs(): CareerPost[] {
   return allJobs
