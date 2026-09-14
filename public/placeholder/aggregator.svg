@@ -1,26 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none" role="img" aria-label="Playmist Aggregator — Content Aggregation Platform">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a0a2e"/>
-      <stop offset="100%" style="stop-color:#16213e"/>
+    <linearGradient id="ag-bg" x1="0" y1="0" x2="1200" y2="750" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0C0803"/>
+      <stop offset="0.55" stop-color="#1A1005"/>
+      <stop offset="1" stop-color="#2A1608"/>
+    </linearGradient>
+    <radialGradient id="ag-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 375) rotate(90) scale(420 520)">
+      <stop offset="0" stop-color="#F97316" stop-opacity="0.50"/>
+      <stop offset="0.55" stop-color="#F97316" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#F97316" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ag-glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 120) rotate(55) scale(400 440)">
+      <stop offset="0" stop-color="#FBBF24" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#FBBF24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ag-mark" x1="0" y1="0" x2="72" y2="72" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBBF24"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="ag-hub" x1="820" y1="300" x2="980" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#EA580C"/>
+    </linearGradient>
+    <linearGradient id="ag-wire" x1="640" y1="375" x2="880" y2="375" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F97316" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#FBBF24" stop-opacity="0.85"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="800" fill="url(#bg)" rx="16"/>
-  <rect x="60" y="60" width="1080" height="680" rx="12" fill="#1e1640" stroke="#2d2057" stroke-width="1"/>
-  <!-- Monitor icon -->
-  <rect x="545" y="340" width="110" height="75" rx="6" fill="none" stroke="#a855f7" stroke-width="3" opacity="0.8"/>
-  <line x1="600" y1="415" x2="600" y2="440" stroke="#a855f7" stroke-width="3" opacity="0.8"/>
-  <line x1="575" y1="440" x2="625" y2="440" stroke="#a855f7" stroke-width="3" opacity="0.8"/>
-  <!-- Title -->
-  <text x="600" y="500" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="600" fill="#94a3b8">PlayMist Aggregator</text>
-  <text x="600" y="535" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#64748b">Content Aggregation Platform</text>
-  <!-- Decorative lines -->
-  <rect x="200" y="140" width="300" height="8" rx="4" fill="#2d2057"/>
-  <rect x="200" y="168" width="200" height="8" rx="4" fill="#2d2057"/>
-  <rect x="200" y="220" width="800" height="1" fill="#2d2057"/>
-  <!-- Mock UI elements -->
-  <rect x="200" y="250" width="160" height="90" rx="6" fill="#2d2057"/>
-  <rect x="380" y="250" width="160" height="90" rx="6" fill="#2d2057"/>
-  <rect x="560" y="250" width="160" height="90" rx="6" fill="#2d2057"/>
-  <rect x="740" y="250" width="160" height="90" rx="6" fill="#2d2057"/>
+
+  <rect width="1200" height="750" fill="url(#ag-bg)"/>
+  <rect width="1200" height="750" fill="url(#ag-glow)"/>
+  <rect width="1200" height="750" fill="url(#ag-glow2)"/>
+
+  <!-- Source nodes fanning into the hub -->
+  <g stroke="url(#ag-wire)" stroke-width="2" fill="none">
+    <path d="M672 195 C 780 195, 800 330, 886 366"/>
+    <path d="M672 285 C 780 285, 810 345, 886 372"/>
+    <path d="M672 375 C 780 375, 820 375, 886 378"/>
+    <path d="M672 465 C 780 465, 810 405, 886 384"/>
+    <path d="M672 555 C 780 555, 800 420, 886 390"/>
+  </g>
+
+  <g fill="#F97316" fill-opacity="0.10" stroke="#F97316" stroke-opacity="0.38">
+    <rect x="560" y="171" width="112" height="48" rx="12"/>
+    <rect x="560" y="261" width="112" height="48" rx="12"/>
+    <rect x="560" y="351" width="112" height="48" rx="12"/>
+    <rect x="560" y="441" width="112" height="48" rx="12"/>
+    <rect x="560" y="531" width="112" height="48" rx="12"/>
+  </g>
+  <g fill="#FDBA74">
+    <circle cx="588" cy="195" r="7"/><circle cx="588" cy="285" r="7"/>
+    <circle cx="588" cy="375" r="7"/><circle cx="588" cy="465" r="7"/>
+    <circle cx="588" cy="555" r="7"/>
+  </g>
+  <g fill="#FFFFFF" fill-opacity="0.30">
+    <rect x="606" y="190" width="50" height="9" rx="4.5"/>
+    <rect x="606" y="280" width="42" height="9" rx="4.5"/>
+    <rect x="606" y="370" width="54" height="9" rx="4.5"/>
+    <rect x="606" y="460" width="38" height="9" rx="4.5"/>
+    <rect x="606" y="550" width="48" height="9" rx="4.5"/>
+  </g>
+
+  <!-- Hub -->
+  <circle cx="948" cy="375" r="104" fill="#F97316" fill-opacity="0.08"/>
+  <circle cx="948" cy="375" r="104" stroke="#F97316" stroke-opacity="0.22" stroke-width="1.5"/>
+  <circle cx="948" cy="375" r="72" fill="#F97316" fill-opacity="0.12"/>
+  <circle cx="948" cy="375" r="72" stroke="#FB923C" stroke-opacity="0.35" stroke-width="1.5"/>
+  <rect x="898" y="325" width="100" height="100" rx="28" fill="url(#ag-hub)"/>
+  <g stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round">
+    <path d="M925 362 H971"/>
+    <path d="M925 379 H971"/>
+    <path d="M925 396 H955"/>
+  </g>
+
+  <!-- Unified output -->
+  <path d="M1052 375 H1124" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M1112 366 L1124 375 L1112 384" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Brand lockup -->
+  <g transform="translate(88 190)">
+    <rect width="72" height="72" rx="20" fill="url(#ag-mark)"/>
+    <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round">
+      <path d="M22 28 H50"/><path d="M22 40 H50"/><path d="M22 52 H40"/>
+    </g>
+  </g>
+  <text x="88" y="318" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="54" font-weight="700" fill="#FFFFFF" letter-spacing="-1.2">Playmist</text>
+  <text x="88" y="376" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="54" font-weight="700" fill="#FB923C" letter-spacing="-1.2">Aggregator</text>
+  <text x="88" y="432" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="23" font-weight="600" fill="#FCD34D" letter-spacing="0.5">Content Aggregation Platform</text>
+
+  <rect x="88" y="466" width="64" height="4" rx="2" fill="#F97316"/>
+
+  <text x="88" y="526" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="17" fill="#94A3B8">150+ sources · Normalized metadata · One API</text>
+
+  <!-- Feature chips -->
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#FFEDD5">
+    <rect x="88" y="564" width="102" height="36" rx="18" fill="#F97316" fill-opacity="0.14" stroke="#F97316" stroke-opacity="0.32"/>
+    <text x="139" y="587" text-anchor="middle">Ingest</text>
+    <rect x="202" y="564" width="126" height="36" rx="18" fill="#F97316" fill-opacity="0.14" stroke="#F97316" stroke-opacity="0.32"/>
+    <text x="265" y="587" text-anchor="middle">Normalize</text>
+    <rect x="340" y="564" width="122" height="36" rx="18" fill="#F97316" fill-opacity="0.14" stroke="#F97316" stroke-opacity="0.32"/>
+    <text x="401" y="587" text-anchor="middle">Distribute</text>
+  </g>
 </svg>

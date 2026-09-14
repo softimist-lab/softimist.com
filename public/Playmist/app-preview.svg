@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1850" height="950" viewBox="0 0 1850 950" fill="none" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Streamora OTT interface preview (demo tenant)">
+  <defs>
+    <linearGradient id="p-app" x1="0" y1="0" x2="0" y2="950" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#15171C"/><stop offset="1" stop-color="#0E1014"/>
+    </linearGradient>
+    <linearGradient id="p-back" x1="600" y1="0" x2="1850" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A4A5E"/><stop offset="0.5" stop-color="#5C4A54"/><stop offset="1" stop-color="#2A3440"/>
+    </linearGradient>
+    <linearGradient id="p-scrim" x1="0" y1="0" x2="1250" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E1014"/><stop offset="0.42" stop-color="#0E1014" stop-opacity="0.94"/>
+      <stop offset="0.75" stop-color="#0E1014" stop-opacity="0.35"/><stop offset="1" stop-color="#0E1014" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="p-scrimb" x1="0" y1="430" x2="0" y2="620" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E1014" stop-opacity="0"/><stop offset="1" stop-color="#0E1014"/>
+    </linearGradient>
+    <linearGradient id="p-mark" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C084FC"/><stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="p-sub" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="ps1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B4A8A"/><stop offset="1" stop-color="#1C1730"/></linearGradient>
+    <linearGradient id="ps2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8A5A3C"/><stop offset="1" stop-color="#2B1A12"/></linearGradient>
+    <linearGradient id="ps3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#37606B"/><stop offset="1" stop-color="#13242A"/></linearGradient>
+    <linearGradient id="ps4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7E3B52"/><stop offset="1" stop-color="#2A121C"/></linearGradient>
+    <linearGradient id="ps5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3F5B84"/><stop offset="1" stop-color="#161F2E"/></linearGradient>
+    <linearGradient id="ps6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6B6437"/><stop offset="1" stop-color="#242212"/></linearGradient>
+    <linearGradient id="ps7" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A4A55"/><stop offset="1" stop-color="#17171C"/></linearGradient>
+    <linearGradient id="p-pscrim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.45" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.78"/>
+    </linearGradient>
+    <clipPath id="p-heroclip"><rect width="1850" height="620"/></clipPath>
+  </defs>
+
+  <rect width="1850" height="950" fill="url(#p-app)"/>
+
+  <!-- Hero backdrop (abstract, non-photographic) -->
+  <g clip-path="url(#p-heroclip)">
+    <rect width="1850" height="620" fill="url(#p-back)"/>
+    <g opacity="0.9">
+      <ellipse cx="1320" cy="200" rx="360" ry="300" fill="#8FA3BC" opacity="0.42"/>
+      <ellipse cx="1660" cy="400" rx="320" ry="360" fill="#A07C69" opacity="0.40"/>
+      <ellipse cx="1090" cy="470" rx="290" ry="250" fill="#51657E" opacity="0.48"/>
+      <path d="M1180 620 L1360 150 L1540 620 Z" fill="#FFFFFF" opacity="0.10"/>
+      <path d="M1480 620 L1640 260 L1800 620 Z" fill="#FFFFFF" opacity="0.08"/>
+    </g>
+    <rect width="1250" height="620" fill="url(#p-scrim)"/>
+    <rect y="430" width="1850" height="190" fill="url(#p-scrimb)"/>
+  </g>
+
+  <!-- Top navigation -->
+  <rect width="1850" height="86" fill="#0E1014" fill-opacity="0.55"/>
+  <g transform="translate(112 20)">
+    <rect width="46" height="46" rx="13" fill="url(#p-mark)"/>
+    <path d="M18 14 L18 32 L33 23 Z" fill="#FFFFFF"/>
+  </g>
+  <text x="170" y="53" font-size="27" font-weight="700" fill="#FFFFFF" letter-spacing="-0.6">Streamora</text>
+  <g font-size="17" fill="#C7CBD4">
+    <text x="663" y="50" fill="#FFFFFF" font-weight="600">Home</text>
+    <text x="737" y="50">Movies</text>
+    <text x="822" y="50">Series</text>
+    <text x="900" y="50">Documentaries</text>
+    <text x="1046" y="50">Live TVs</text>
+    <text x="1140" y="50">Shorts</text>
+  </g>
+  <g transform="translate(1601 32)" stroke="#E5E7EB" stroke-width="2" fill="none">
+    <circle cx="9" cy="9" r="8"/><path d="M15 15 L21 21" stroke-linecap="round"/>
+  </g>
+  <rect x="1663" y="24" width="104" height="38" rx="19" fill="none" stroke="#6B7280"/>
+  <g transform="translate(1681 33)" stroke="#E5E7EB" stroke-width="1.8" fill="none">
+    <circle cx="7" cy="6" r="4.5"/><path d="M0 19 C 0 12, 14 12, 14 19" stroke-linecap="round"/>
+  </g>
+  <text x="1712" y="49" font-size="15" fill="#E5E7EB">Login</text>
+
+  <!-- Hero meta -->
+  <g transform="translate(118 128)">
+    <rect width="52" height="32" rx="5" fill="#101418" stroke="#3F4652"/>
+    <text x="26" y="22" text-anchor="middle" font-size="14" font-weight="800" fill="#9FB2C9" letter-spacing="1.2">NW</text>
+  </g>
+  <text x="186" y="150" font-size="17" fill="#D8DCE4" text-decoration="underline">Drama</text>
+  <text x="253" y="150" font-size="17" fill="#D8DCE4">1h 38m</text>
+  <text x="348" y="150" font-size="17" fill="#D8DCE4">2024</text>
+  <rect x="409" y="131" width="38" height="26" rx="5" fill="none" stroke="#6B7280"/>
+  <text x="428" y="150" text-anchor="middle" font-size="14" fill="#D8DCE4">PG</text>
+
+  <text x="118" y="248" font-size="62" font-weight="700" fill="#FFFFFF" letter-spacing="-1.4">The Silent Harbor</text>
+
+  <!-- Action buttons -->
+  <rect x="118" y="288" width="200" height="52" rx="26" fill="url(#p-sub)"/>
+  <g transform="translate(146 302)" fill="#FFFFFF">
+    <path d="M0 18 L3 4 L8 11 L12 2 L16 11 L21 4 L24 18 Z"/>
+  </g>
+  <text x="212" y="321" font-size="17" font-weight="600" fill="#FFFFFF">Subscribe</text>
+  <rect x="333" y="288" width="128" height="52" rx="26" fill="none" stroke="#5A6270"/>
+  <g transform="translate(359 302)" stroke="#FFFFFF" stroke-width="1.8" fill="none">
+    <path d="M4 10 L4 20 L18 20 L21 11 L15 11 L16 3 L12 3 L8 11 Z" stroke-linejoin="round"/>
+  </g>
+  <text x="412" y="321" font-size="17" fill="#FFFFFF">Like</text>
+  <circle cx="500" cy="314" r="26" fill="none" stroke="#5A6270"/>
+  <g stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"><path d="M500 303 V325"/><path d="M489 314 H511"/></g>
+  <circle cx="562" cy="314" r="26" fill="none" stroke="#5A6270"/>
+  <g stroke="#FFFFFF" stroke-width="1.8" fill="none">
+    <circle cx="571" cy="306" r="4.5"/><circle cx="554" cy="314" r="4.5"/><circle cx="571" cy="322" r="4.5"/>
+    <path d="M558 312 L567 308 M558 316 L567 320" stroke-linecap="round"/>
+  </g>
+
+  <text x="118" y="388" font-size="19" fill="#B6BCC7">A retired lighthouse keeper returns to a fog-bound coastal town and finds the</text>
+  <text x="118" y="416" font-size="19" fill="#B6BCC7">harbour keeping a secret the tide refuses to give back.</text>
+  <text x="118" y="456" font-size="17" font-weight="600" fill="#B57BF5">See More</text>
+  <path d="M218 449 L228 449 L223 456 Z" fill="#B57BF5"/>
+
+  <!-- Recommended row -->
+  <text x="118" y="588" font-size="30" font-weight="700" fill="#FFFFFF" letter-spacing="-0.4">Recommended</text>
+
+  <g>
+    <g><rect x="118" y="622" width="215" height="290" rx="12" fill="url(#ps1)"/>
+       <g opacity="0.30"><circle cx="226" cy="716" r="62" fill="#FFFFFF"/><path d="M140 912 L226 748 L311 912 Z" fill="#FFFFFF"/></g>
+       <rect x="118" y="622" width="215" height="290" rx="12" fill="url(#p-pscrim)"/>
+       <text x="226" y="884" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">HARBOR LIGHTS</text></g>
+
+    <g><rect x="351" y="622" width="215" height="290" rx="12" fill="url(#ps2)"/>
+       <g opacity="0.28"><rect x="392" y="676" width="134" height="134" rx="67" fill="#FFFFFF"/><rect x="425" y="622" width="68" height="290" fill="#FFFFFF" opacity="0.5"/></g>
+       <rect x="351" y="622" width="215" height="290" rx="12" fill="url(#p-pscrim)"/>
+       <text x="459" y="884" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">IRON MERIDIAN</text></g>
+
+    <g><rect x="584" y="622" width="215" height="290" rx="12" fill="url(#ps3)"/>
+       <g opacity="0.30"><path d="M584 830 L660 712 L736 830 Z" fill="#FFFFFF"/><path d="M668 862 L740 742 L799 862 Z" fill="#FFFFFF" opacity="0.7"/></g>
+       <rect x="584" y="622" width="215" height="290" rx="12" fill="url(#p-pscrim)"/>
+       <text x="692" y="884" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">THE LONG DUSK</text></g>
+
+    <g><rect x="817" y="622" width="215" height="290" rx="12" fill="url(#ps4)"/>
+       <g opacity="0.30"><circle cx="924" cy="730" r="70" fill="none" stroke="#FFFFFF" stroke-width="14"/><rect x="916" y="730" width="16" height="182" fill="#FFFFFF"/></g>
+       <rect x="817" y="622" width="215" height="290" rx="12" fill="url(#p-pscrim)"/>
+       <text x="925" y="884" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">VANTAGE</text></g>
+
+    <g><rect x="1050" y="622" width="215" height="290" rx="12" fill="url(#ps5)"/>
+       <g opacity="0.30"><circle cx="1157" cy="742" r="58" fill="#FFFFFF"/><circle cx="1157" cy="742" r="92" fill="none" stroke="#FFFFFF" stroke-width="6"/></g>
+       <rect x="1050" y="622" width="215" height="290" rx="12" fill="url(#p-pscrim)"/>
+       <text x="1158" y="884" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">SOLSTICE</text></g>
+
+    <g><rect x="1283" y="622" width="215" height="290" rx="12" fill="url(#ps6)"/>
+       <g opacity="0.28"><path d="M1300 880 L1360 700 L1420 880 Z" fill="#FFFFFF"/><path d="M1380 880 L1440 760 L1490 880 Z" fill="#FFFFFF" opacity="0.6"/></g>
+       <rect x="1283" y="622" width="215" height="290" rx="12" fill="url(#p-pscrim)"/>
+       <text x="1391" y="884" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">PAPER TIGERS</text></g>
+
+    <g><rect x="1516" y="622" width="215" height="290" rx="12" fill="url(#ps7)"/>
+       <g opacity="0.30"><circle cx="1570" cy="700" r="20" fill="#FFFFFF"/><circle cx="1624" cy="742" r="20" fill="#FFFFFF"/><circle cx="1678" cy="700" r="20" fill="#FFFFFF"/><circle cx="1597" cy="800" r="20" fill="#FFFFFF"/><circle cx="1651" cy="800" r="20" fill="#FFFFFF"/></g>
+       <rect x="1516" y="622" width="215" height="290" rx="12" fill="url(#p-pscrim)"/>
+       <text x="1624" y="884" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">NINE LANTERNS</text></g>
+  </g>
+</svg>

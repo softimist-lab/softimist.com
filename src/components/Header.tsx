@@ -98,9 +98,9 @@ export default function Header() {
             </MegaMenuPanel>
           </div>
 
-          {/* PlayMist Mega Menu */}
+          {/* Playmist Mega Menu */}
           <div className="relative" onMouseEnter={playmist.enter} onMouseLeave={playmist.leave}>
-            <NavTrigger label="PlayMist" open={playmist.open} onToggle={playmist.toggle} />
+            <NavTrigger label="Playmist" open={playmist.open} onToggle={playmist.toggle} />
             <MegaMenuPanel open={playmist.open} onEnter={playmist.enter} onLeave={playmist.leave} variant="default">
               <div className="grid grid-cols-[220px_1fr_240px] gap-0">
                 {/* OTT */}
@@ -178,7 +178,7 @@ export default function Header() {
             </MobileAccordion>
 
             <MobileAccordion
-              label="PlayMist"
+              label="Playmist"
               open={mobilePlaymistOpen}
               onToggle={() => setMobilePlaymistOpen((v) => !v)}
             >

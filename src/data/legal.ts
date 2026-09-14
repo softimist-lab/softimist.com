@@ -17,7 +17,7 @@ export const privacyPolicy: LegalDocument = {
     'How Softimist Limited collects, uses, shares, and protects personal information across our website and products.',
   lastUpdated: '2026-09-14',
   intro: [
-    `${legalContact.company} ("Softimist", "we", "us", or "our") respects your privacy. This Privacy Policy explains what personal information we collect when you visit softimist.com, contact us, apply for a job, or use our products — including Edushade, PlayMist, and PlayMist Aggregator — and how we use, share, and safeguard that information.`,
+    `${legalContact.company} ("Softimist", "we", "us", or "our") respects your privacy. This Privacy Policy explains what personal information we collect when you visit softimist.com, contact us, apply for a job, or use our products — including Edushade, Playmist, and Playmist Aggregator — and how we use, share, and safeguard that information.`,
     'By using our website or services, you agree to the practices described in this policy. If you do not agree, please stop using the site and services.',
   ],
   sections: [
@@ -31,7 +31,7 @@ export const privacyPolicy: LegalDocument = {
         'Information you give us: your name, email address, phone number, company, message content, and — for job applications — your CV, work history, portfolio links, and any other details you choose to share.',
         'Information collected automatically: IP address, browser and device type, operating system, referring page, pages viewed, and approximate location derived from your IP address.',
         'Cookies and similar technologies: small files stored on your device that keep your theme preference, maintain sessions, and support privacy-friendly analytics.',
-        'Information from our products: where you use Edushade, PlayMist, or PlayMist Aggregator under an agreement with a customer of ours, we process account, usage, and content data on that customer’s behalf as described in Section 9.',
+        'Information from our products: where you use Edushade, Playmist, or Playmist Aggregator under an agreement with a customer of ours, we process account, usage, and content data on that customer’s behalf as described in Section 9.',
       ],
     },
     {
@@ -109,7 +109,7 @@ export const privacyPolicy: LegalDocument = {
       id: 'customer-data',
       title: '9. Data We Process for Customers',
       body: [
-        'When an organisation licenses Edushade, PlayMist, or PlayMist Aggregator, that organisation is the controller of the personal data processed in its platform and Softimist acts as a processor. We process that data only on the organisation’s documented instructions and under the terms of our agreement with them.',
+        'When an organisation licenses Edushade, Playmist, or Playmist Aggregator, that organisation is the controller of the personal data processed in its platform and Softimist acts as a processor. We process that data only on the organisation’s documented instructions and under the terms of our agreement with them.',
         'If you are an end user of a platform operated by one of our customers, please direct requests about your data to that organisation. We will support them in responding.',
       ],
     },
@@ -167,7 +167,7 @@ export const termsOfService: LegalDocument = {
       id: 'services',
       title: '1. Our Services',
       body: [
-        'Softimist builds and licenses white-label software platforms, including Edushade (learning management), PlayMist (OTT streaming), and PlayMist Aggregator (content distribution), together with related custom development and support services.',
+        'Softimist builds and licenses white-label software platforms, including Edushade (learning management), Playmist (OTT streaming), and Playmist Aggregator (content distribution), together with related custom development and support services.',
         'This website provides general information about those offerings. Access to a product itself is governed by a separate written agreement, order form, or subscription terms. Where those documents conflict with these Terms, the separate agreement prevails for that product.',
       ],
     },

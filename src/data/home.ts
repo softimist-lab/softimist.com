@@ -44,10 +44,10 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: 'playmist',
-    tab: 'PlayMist',
+    tab: 'Playmist',
     icon: Play,
     mockup: {
-      title: 'PlayMist Content Manager',
+      title: 'Playmist Content Manager',
       sidebar: ['Dashboard', 'Movies', 'Series', 'Live TV', 'Analytics', 'Settings'],
       stats: [
         { label: 'Total Views', value: '2.4M', change: '+34%' },
@@ -68,7 +68,7 @@ export const heroSlides: HeroSlide[] = [
     tab: 'Aggregator',
     icon: Monitor,
     mockup: {
-      title: 'PlayMist Aggregator Pipeline',
+      title: 'Playmist Aggregator Pipeline',
       sidebar: ['Dashboard', 'Sources', 'Content', 'Distribution', 'Rights', 'API'],
       stats: [
         { label: 'Content Sources', value: '156', change: '+8' },
@@ -114,10 +114,10 @@ export const productShowcases: ProductShowcase[] = [
   },
   {
     id: 'playmist',
-    name: 'PlayMist',
+    name: 'Playmist',
     headline: 'Stream Everything. Beautifully.',
     description:
-      'A next-generation OTT platform for live TV, movies, and series. PlayMist delivers adaptive bitrate streaming, DRM protection, and a stunning viewer experience across every device and screen size.',
+      'A next-generation OTT platform for live TV, movies, and series. Playmist delivers adaptive bitrate streaming, DRM protection, and a stunning viewer experience across every device and screen size.',
     cta: { label: 'Learn more', href: '#' }, //https://playmist.softimist.com
     accent: '#8B5CF6',
     features: [
@@ -129,7 +129,7 @@ export const productShowcases: ProductShowcase[] = [
   },
   {
     id: 'aggregator',
-    name: 'PlayMist Aggregator',
+    name: 'Playmist Aggregator',
     headline: 'Unify Your Content Pipeline',
     description:
       'Aggregate, normalize, and distribute content across platforms with a single powerful API. From metadata enrichment to rights management, the Aggregator is the backbone of your content operations.',
@@ -179,6 +179,6 @@ export const homeServices: HomeService[] = [
 
 export const productImages: Record<string, string> = {
   edushade: '/edushade/image1.png',
-  playmist: '/placeholder/playmist.svg',
-  aggregator: '/placeholder/aggregator.svg',
+  playmist: '/Playmist/app-preview.svg',
+  aggregator: '/aggregaor/app-preview.svg',
 }

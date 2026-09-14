@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1850" height="950" viewBox="0 0 1850 950" fill="none" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" role="img" aria-label="Mediabridge content aggregation interface preview (demo tenant)">
+  <defs>
+    <linearGradient id="a-app" x1="0" y1="0" x2="0" y2="950" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#15171C"/><stop offset="1" stop-color="#0E1014"/>
+    </linearGradient>
+    <linearGradient id="a-h1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7A4B2E"/><stop offset="1" stop-color="#2A1A10"/></linearGradient>
+    <linearGradient id="a-h2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A4238"/><stop offset="1" stop-color="#171512"/></linearGradient>
+    <linearGradient id="a-h3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E3A4A"/><stop offset="1" stop-color="#101419"/></linearGradient>
+    <linearGradient id="a-mark" x1="0" y1="0" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="a-cscrim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.3" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.72"/>
+    </linearGradient>
+    <linearGradient id="a-r1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6D4B7A"/><stop offset="1" stop-color="#221830"/></linearGradient>
+    <linearGradient id="a-r2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3F6B63"/><stop offset="1" stop-color="#142320"/></linearGradient>
+    <linearGradient id="a-r3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8A5B34"/><stop offset="1" stop-color="#2C1C10"/></linearGradient>
+    <linearGradient id="a-r4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#42598C"/><stop offset="1" stop-color="#151C2E"/></linearGradient>
+    <linearGradient id="a-r5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C3F4E"/><stop offset="1" stop-color="#2A1219"/></linearGradient>
+    <linearGradient id="a-fadeL" x1="0" y1="0" x2="170" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111318"/><stop offset="1" stop-color="#111318" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="a-fadeR" x1="1680" y1="0" x2="1850" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111318" stop-opacity="0"/><stop offset="1" stop-color="#111318"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1850" height="950" fill="url(#a-app)"/>
+
+  <!-- Hero carousel -->
+  <g>
+    <rect x="0" y="52" width="352" height="268" rx="14" fill="url(#a-h1)"/>
+    <g opacity="0.32"><circle cx="150" cy="140" r="86" fill="#FFFFFF"/><path d="M20 320 L170 170 L320 320 Z" fill="#FFFFFF"/></g>
+    <rect x="0" y="52" width="352" height="268" rx="14" fill="url(#a-cscrim)"/>
+    <rect x="96" y="180" width="176" height="96" rx="10" fill="#000000" fill-opacity="0.45"/>
+    <rect x="110" y="196" width="28" height="20" rx="3" fill="#1B2029" stroke="#414958"/>
+    <text x="124" y="210" text-anchor="middle" font-size="8" font-weight="800" fill="#9FB2C9">VX</text>
+    <text x="148" y="211" font-size="13" fill="#D8DCE4" text-decoration="underline">Action</text>
+    <text x="200" y="211" font-size="13" fill="#8A929E">·</text>
+    <text x="212" y="211" font-size="13" fill="#D8DCE4" text-decoration="underline">Fantasy</text>
+    <text x="110" y="245" font-size="13" fill="#D8DCE4">1h 56m</text>
+    <text x="176" y="245" font-size="13" fill="#D8DCE4">2022</text>
+    <rect x="222" y="230" width="30" height="20" rx="4" fill="none" stroke="#6B7280"/>
+    <text x="237" y="245" text-anchor="middle" font-size="11" fill="#D8DCE4">PG</text>
+
+    <rect x="368" y="52" width="1110" height="268" rx="14" fill="url(#a-h2)"/>
+    <g opacity="0.30">
+      <ellipse cx="1010" cy="150" rx="240" ry="190" fill="#FFFFFF" opacity="0.35"/>
+      <path d="M700 320 L900 90 L1100 320 Z" fill="#FFFFFF" opacity="0.4"/>
+      <path d="M1040 320 L1220 120 L1400 320 Z" fill="#FFFFFF" opacity="0.3"/>
+    </g>
+    <rect x="368" y="52" width="1110" height="268" rx="14" fill="url(#a-cscrim)"/>
+    <text x="414" y="196" font-size="46" font-weight="700" fill="#FFFFFF" letter-spacing="-1">Ember Road</text>
+    <rect x="414" y="228" width="142" height="52" rx="26" fill="#FFFFFF"/>
+    <path d="M452 244 L452 264 L470 254 Z" fill="#111318"/>
+    <text x="486" y="261" font-size="17" font-weight="600" fill="#111318">Play</text>
+    <circle cx="598" cy="254" r="26" fill="#000000" fill-opacity="0.42" stroke="#FFFFFF" stroke-opacity="0.35"/>
+    <g stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"><path d="M598 243 V265"/><path d="M587 254 H609"/></g>
+    <circle cx="660" cy="254" r="26" fill="#000000" fill-opacity="0.42" stroke="#FFFFFF" stroke-opacity="0.35"/>
+    <text x="660" y="262" text-anchor="middle" font-size="21" font-weight="700" fill="#FFFFFF" font-style="italic">i</text>
+    <rect x="1218" y="180" width="214" height="96" rx="10" fill="#000000" fill-opacity="0.45"/>
+    <rect x="1234" y="196" width="28" height="20" rx="3" fill="#1B2029" stroke="#414958"/>
+    <text x="1248" y="210" text-anchor="middle" font-size="8" font-weight="800" fill="#9FB2C9">KN</text>
+    <text x="1272" y="211" font-size="13" fill="#D8DCE4" text-decoration="underline">Action</text>
+    <text x="1324" y="211" font-size="13" fill="#8A929E">·</text>
+    <text x="1336" y="211" font-size="13" fill="#D8DCE4" text-decoration="underline">History</text>
+    <text x="1234" y="245" font-size="13" fill="#D8DCE4">1h 48m</text>
+    <text x="1300" y="245" font-size="13" fill="#D8DCE4">2021</text>
+    <rect x="1346" y="230" width="30" height="20" rx="4" fill="none" stroke="#6B7280"/>
+    <text x="1361" y="245" text-anchor="middle" font-size="11" fill="#D8DCE4">PG</text>
+
+    <rect x="1494" y="52" width="356" height="268" rx="14" fill="url(#a-h3)"/>
+    <g opacity="0.30"><rect x="1560" y="90" width="230" height="230" rx="115" fill="#FFFFFF" opacity="0.3"/><path d="M1520 320 L1660 150 L1800 320 Z" fill="#FFFFFF" opacity="0.45"/></g>
+    <rect x="1494" y="52" width="356" height="268" rx="14" fill="url(#a-cscrim)"/>
+    <text x="1536" y="196" font-size="40" font-weight="700" fill="#FFFFFF" letter-spacing="-0.8">Absolute</text>
+    <rect x="1536" y="226" width="142" height="52" rx="26" fill="#FFFFFF"/>
+    <path d="M1574 242 L1574 262 L1592 252 Z" fill="#111318"/>
+    <text x="1608" y="259" font-size="17" font-weight="600" fill="#111318">Play</text>
+  </g>
+
+  <!-- Carousel controls -->
+  <circle cx="132" cy="356" r="20" fill="none" stroke="#5A6270"/>
+  <path d="M137 348 L129 356 L137 364" stroke="#E5E7EB" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="180" cy="356" r="20" fill="none" stroke="#5A6270"/>
+  <path d="M175 348 L183 356 L175 364" stroke="#E5E7EB" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#4B515C">
+    <circle cx="1660" cy="356" r="6"/><circle cx="1682" cy="356" r="6" fill="#FFFFFF"/>
+    <circle cx="1704" cy="356" r="6"/><circle cx="1726" cy="356" r="6"/><circle cx="1748" cy="356" r="6"/>
+  </g>
+
+  <!-- OTT Platforms -->
+  <text x="112" y="440" font-size="30" font-weight="700" fill="#FFFFFF" letter-spacing="-0.4">OTT Platforms</text>
+  <rect x="1636" y="418" width="112" height="34" rx="10" fill="#1C2029" stroke="#333A47"/>
+  <text x="1654" y="440" font-size="14" font-weight="600" fill="#C7CBD4">See All</text>
+  <path d="M1712 434 H1726 M1721 429 L1726 434 L1721 439" stroke="#C7CBD4" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Fictional platform chips -->
+  <g font-size="17" font-weight="600">
+    <rect x="112" y="474" width="146" height="56" rx="28" fill="#2A1F3C" stroke="#A855F7" stroke-opacity="0.7"/>
+    <rect x="130" y="490" width="24" height="24" rx="7" fill="#E11D48"/><circle cx="142" cy="502" r="6" fill="#FFFFFF"/>
+    <text x="168" y="509" fill="#FFFFFF">Halo</text>
+
+    <rect x="304" y="474" width="152" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+    <rect x="322" y="490" width="24" height="24" rx="7" fill="#16A34A"/><path d="M330 496 h8 v4 h-2 v8 h-4 v-8 h-2 z" fill="#FFFFFF"/>
+    <text x="360" y="509" fill="#C7CBD4">Vivid</text>
+
+    <rect x="472" y="474" width="150" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+    <rect x="490" y="490" width="24" height="24" rx="7" fill="#0EA5E9"/><circle cx="502" cy="502" r="7" fill="none" stroke="#FFFFFF" stroke-width="2.4"/>
+    <text x="528" y="509" fill="#C7CBD4">Kinoo</text>
+
+    <rect x="638" y="474" width="170" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+    <rect x="656" y="490" width="24" height="24" rx="7" fill="#F43F5E"/><path d="M661 502 h4 l2-5 3 10 3-7 2 2 h4" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linejoin="round"/>
+    <text x="694" y="509" fill="#C7CBD4">PulseTV</text>
+
+    <rect x="824" y="474" width="158" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+    <rect x="842" y="490" width="24" height="24" rx="7" fill="#F59E0B"/><path d="M854 494 c6 3 6 11 0 14 c-6-3-6-11 0-14z" fill="#FFFFFF"/>
+    <text x="880" y="509" fill="#C7CBD4">Mango</text>
+
+    <rect x="998" y="474" width="148" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+    <rect x="1016" y="490" width="24" height="24" rx="7" fill="#6366F1"/><ellipse cx="1028" cy="502" rx="9" ry="4.5" fill="none" stroke="#FFFFFF" stroke-width="2" transform="rotate(-30 1028 502)"/>
+    <text x="1054" y="509" fill="#C7CBD4">Orbit</text>
+
+    <rect x="1162" y="474" width="166" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+    <rect x="1180" y="490" width="24" height="24" rx="7" fill="#14B8A6"/><path d="M1186 506 c0-5 8-5 8-9 c5 0 6 9 0 9 z" fill="#FFFFFF"/>
+    <text x="1218" y="509" fill="#C7CBD4">Nimbus</text>
+
+    <rect x="1344" y="474" width="174" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+    <rect x="1362" y="490" width="24" height="24" rx="7" fill="#8B5CF6"/><path d="M1368 508 l6-12 l6 12 z" fill="#FFFFFF"/>
+    <text x="1400" y="509" fill="#C7CBD4">Cascade</text>
+
+    <rect x="1534" y="474" width="150" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+    <rect x="1552" y="490" width="24" height="24" rx="7" fill="#EF4444"/><rect x="1558" y="496" width="12" height="12" rx="2" fill="#FFFFFF"/>
+    <text x="1590" y="509" fill="#C7CBD4">Ridge</text>
+  </g>
+  <circle cx="1740" cy="502" r="18" fill="#1C2029" stroke="#333A47"/>
+  <path d="M1736 494 L1744 502 L1736 510" stroke="#C7CBD4" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Content row -->
+  <g>
+    <g><rect x="112" y="566" width="310" height="176" rx="12" fill="url(#a-r1)"/>
+       <g opacity="0.30"><circle cx="267" cy="630" r="46" fill="#FFFFFF"/><path d="M140 742 L267 660 L394 742 Z" fill="#FFFFFF"/></g>
+       <rect x="112" y="566" width="310" height="176" rx="12" fill="url(#a-cscrim)"/>
+       <rect x="126" y="580" width="26" height="26" rx="7" fill="#E11D48"/><circle cx="139" cy="593" r="6" fill="#FFFFFF"/>
+       <text x="267" y="722" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">EMBER ROAD</text></g>
+
+    <g><rect x="438" y="566" width="310" height="176" rx="12" fill="url(#a-r2)"/>
+       <g opacity="0.28"><rect x="540" y="596" width="106" height="106" rx="53" fill="#FFFFFF"/><rect x="566" y="566" width="54" height="176" fill="#FFFFFF" opacity="0.5"/></g>
+       <rect x="438" y="566" width="310" height="176" rx="12" fill="url(#a-cscrim)"/>
+       <rect x="452" y="580" width="26" height="26" rx="7" fill="#E11D48"/><circle cx="465" cy="593" r="6" fill="#FFFFFF"/>
+       <text x="593" y="722" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">GLASS BLOOM</text></g>
+
+    <g><rect x="764" y="566" width="310" height="176" rx="12" fill="url(#a-r3)"/>
+       <g opacity="0.30"><path d="M790 742 L900 606 L1010 742 Z" fill="#FFFFFF"/><path d="M950 742 L1030 630 L1090 742 Z" fill="#FFFFFF" opacity="0.6"/></g>
+       <rect x="764" y="566" width="310" height="176" rx="12" fill="url(#a-cscrim)"/>
+       <rect x="778" y="580" width="26" height="26" rx="7" fill="#E11D48"/><circle cx="791" cy="593" r="6" fill="#FFFFFF"/>
+       <text x="919" y="722" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">TIDEMARK</text></g>
+
+    <g><rect x="1090" y="566" width="310" height="176" rx="12" fill="url(#a-r4)"/>
+       <g opacity="0.30"><circle cx="1245" cy="640" r="42" fill="#FFFFFF"/><circle cx="1245" cy="640" r="66" fill="none" stroke="#FFFFFF" stroke-width="5"/></g>
+       <rect x="1090" y="566" width="310" height="176" rx="12" fill="url(#a-cscrim)"/>
+       <rect x="1104" y="580" width="26" height="26" rx="7" fill="#E11D48"/><circle cx="1117" cy="593" r="6" fill="#FFFFFF"/>
+       <text x="1245" y="722" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">NORTH STAR</text></g>
+
+    <g><rect x="1416" y="566" width="310" height="176" rx="12" fill="url(#a-r5)"/>
+       <g opacity="0.28"><path d="M1440 742 L1540 610 L1640 742 Z" fill="#FFFFFF"/><circle cx="1660" cy="626" r="34" fill="#FFFFFF" opacity="0.8"/></g>
+       <rect x="1416" y="566" width="310" height="176" rx="12" fill="url(#a-cscrim)"/>
+       <rect x="1430" y="580" width="26" height="26" rx="7" fill="#E11D48"/><circle cx="1443" cy="593" r="6" fill="#FFFFFF"/>
+       <text x="1571" y="722" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">LANTERN BAY</text></g>
+  </g>
+
+  <!-- Browse button -->
+  <rect x="112" y="778" width="190" height="56" rx="28" fill="#1C2029" stroke="#333A47"/>
+  <text x="142" y="813" font-size="17" font-weight="600" fill="#E5E7EB">Browse Halo</text>
+  <path d="M256 806 H274 M268 800 L274 806 L268 812" stroke="#E5E7EB" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Trending peek -->
+  <text x="112" y="898" font-size="30" font-weight="700" fill="#FFFFFF" letter-spacing="-0.4">Trending</text>
+  <g opacity="0.9">
+    <rect x="112" y="922" width="310" height="110" rx="12" fill="#2E2440"/>
+    <rect x="438" y="922" width="310" height="110" rx="12" fill="#3A2C1E"/>
+    <rect x="764" y="922" width="310" height="110" rx="12" fill="#1E2A33"/>
+    <rect x="1090" y="922" width="310" height="110" rx="12" fill="#33202A"/>
+    <rect x="1416" y="922" width="310" height="110" rx="12" fill="#2A2E3B"/>
+  </g>
+
+  <!-- Top navigation -->
+  <rect width="1850" height="86" fill="#0E1014" fill-opacity="0.62"/>
+  <g transform="translate(112 20)">
+    <rect width="46" height="46" rx="13" fill="url(#a-mark)"/>
+    <path d="M18 14 L18 32 L33 23 Z" fill="#FFFFFF"/>
+  </g>
+  <text x="170" y="53" font-size="27" font-weight="700" fill="#FFFFFF" letter-spacing="-0.6">Mediabridge</text>
+  <g font-size="17" fill="#C7CBD4">
+    <rect x="645" y="26" width="76" height="34" rx="10" fill="#FFFFFF" fill-opacity="0.10"/>
+    <text x="663" y="50" fill="#FFFFFF" font-weight="600">Home</text>
+    <text x="737" y="50">Movies</text>
+    <text x="822" y="50">Series</text>
+    <text x="900" y="50">Documentaries</text>
+    <text x="1046" y="50">Live TVs</text>
+    <text x="1140" y="50">Shorts</text>
+  </g>
+  <g transform="translate(1601 32)" stroke="#E5E7EB" stroke-width="2" fill="none">
+    <circle cx="9" cy="9" r="8"/><path d="M15 15 L21 21" stroke-linecap="round"/>
+  </g>
+  <rect x="1663" y="24" width="104" height="38" rx="19" fill="none" stroke="#6B7280"/>
+  <g transform="translate(1681 33)" stroke="#E5E7EB" stroke-width="1.8" fill="none">
+    <circle cx="7" cy="6" r="4.5"/><path d="M0 19 C 0 12, 14 12, 14 19" stroke-linecap="round"/>
+  </g>
+  <text x="1712" y="49" font-size="15" fill="#E5E7EB">Login</text>
+</svg>

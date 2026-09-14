@@ -138,7 +138,7 @@ function ProductSection({ product, index }: { product: Product; index: number })
           {/* Product Screenshot */}
           <div className="flex items-center justify-center">
             <img
-              src={product.id === 'edushade' ? '/edushade/image1.png' : product.id === 'playmist' ? '/placeholder/playmist.svg' : '/placeholder/aggregator.svg'}
+              src={product.id === 'edushade' ? '/edushade/image1.png' : product.id === 'playmist' ? '/Playmist/app-preview.svg' : '/aggregaor/app-preview.svg'}
               alt={`${product.name} screenshot`}
               className="w-full rounded-2xl"
               loading="lazy"

@@ -100,11 +100,11 @@ export const products: Product[] = [
   },
   {
     id: 'playmist',
-    name: 'PlayMist',
+    name: 'Playmist',
     tagline: 'Enterprise OTT Streaming Platform',
     headline: 'Launch Your Own Streaming Service — Netflix-Grade, Your Brand',
     description:
-      'PlayMist is a turnkey OTT platform that lets you launch a branded streaming service with DRM-protected content, live TV, multi-device apps, and flexible monetization. Built for media companies, telcos, and content owners who want full control.',
+      'Playmist is a turnkey OTT platform that lets you launch a branded streaming service with DRM-protected content, live TV, multi-device apps, and flexible monetization. Built for media companies, telcos, and content owners who want full control.',
     features: [
       { icon: Lock, title: 'DRM Protection', desc: 'Widevine L1/L3 and FairPlay DRM with encrypted streaming via DASH and HLS protocols.' },
       { icon: Tv, title: 'Live TV & VOD', desc: 'Broadcast live channels alongside a full video-on-demand library with EPG support.' },
@@ -126,10 +126,10 @@ export const products: Product[] = [
       { icon: GraduationCap, title: 'Education & Training', desc: 'Deliver video-based learning content with DRM protection and progress tracking.' },
     ],
     faq: [
-      { question: 'What DRM protection is included?', answer: 'PlayMist includes both Google Widevine (L1 and L3) and Apple FairPlay DRM, ensuring content protection across all major devices and browsers.' },
+      { question: 'What DRM protection is included?', answer: 'Playmist includes both Google Widevine (L1 and L3) and Apple FairPlay DRM, ensuring content protection across all major devices and browsers.' },
       { question: 'Can I launch on mobile app stores?', answer: 'Yes. We provide white-labeled native apps for iOS App Store and Google Play Store, plus smart TV apps for Android TV, Fire TV, and Roku.' },
       { question: 'What monetization models are supported?', answer: 'SVOD (subscription), TVOD (rent/buy), AVOD (ad-supported), and hybrid combinations. Includes coupon codes, free trials, and bundle pricing.' },
-      { question: 'How does live streaming work?', answer: 'PlayMist supports RTMP ingest for live streams with adaptive bitrate transcoding, DVR/catch-up, and EPG (Electronic Program Guide) integration.' },
+      { question: 'How does live streaming work?', answer: 'Playmist supports RTMP ingest for live streams with adaptive bitrate transcoding, DVR/catch-up, and EPG (Electronic Program Guide) integration.' },
       { question: 'What analytics are available?', answer: 'Real-time dashboards covering viewer engagement, content performance, subscriber growth, revenue metrics, device breakdowns, and geographic distribution.' },
     ],
     highlights: [
@@ -165,11 +165,11 @@ export const products: Product[] = [
   },
   {
     id: 'playmist-aggregator',
-    name: 'PlayMist Aggregator',
+    name: 'Playmist Aggregator',
     tagline: 'Content Aggregation & Distribution Engine',
     headline: 'Unify Content From Every Source — One Platform, Total Control',
     description:
-      'PlayMist Aggregator is a content aggregation engine that ingests, normalizes, and distributes media from multiple providers into a unified catalog. Built for platform operators, distributors, and super-apps that need to manage content at scale.',
+      'Playmist Aggregator is a content aggregation engine that ingests, normalizes, and distributes media from multiple providers into a unified catalog. Built for platform operators, distributors, and super-apps that need to manage content at scale.',
     features: [
       { icon: Layers, title: 'Multi-Source Ingestion', desc: 'Automated content ingestion from MRSS feeds, APIs, FTP, and manual uploads with deduplication.' },
       { icon: Sparkles, title: 'AI-Powered Curation', desc: 'Smart recommendation engine with collaborative filtering, trending detection, and personalized feeds.' },
@@ -192,7 +192,7 @@ export const products: Product[] = [
     ],
     faq: [
       { question: 'How does content ingestion work?', answer: 'The Aggregator supports MRSS feeds, REST API endpoints, FTP/SFTP uploads, and manual CSV imports. Content is automatically deduplicated, validated, and normalized on ingestion.' },
-      { question: 'Can it work with any OTT platform?', answer: 'Yes. The Aggregator is platform-agnostic with API-first design. It integrates with PlayMist OTT natively and can feed any third-party platform via REST/GraphQL APIs.' },
+      { question: 'Can it work with any OTT platform?', answer: 'Yes. The Aggregator is platform-agnostic with API-first design. It integrates with Playmist OTT natively and can feed any third-party platform via REST/GraphQL APIs.' },
       { question: 'How does the AI recommendation engine work?', answer: 'It uses collaborative filtering, content-based similarity, and trending analysis to generate personalized feeds. The engine learns from user behavior and improves over time.' },
       { question: 'What rights management features are included?', answer: 'Per-title geo-restrictions, availability windows (start/end dates), licensing tier tracking, provider attribution, and automated content takedown when rights expire.' },
       { question: 'Is there a dashboard for content operations?', answer: 'Yes. A full content operations dashboard with catalog health metrics, ingestion logs, distribution status, and provider performance analytics.' },

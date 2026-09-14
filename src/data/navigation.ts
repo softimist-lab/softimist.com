@@ -85,7 +85,7 @@ export const edushadeMenu: MegaMenuConfig = {
 }
 
 export const playmistMenu: MegaMenuConfig = {
-  trigger: 'PlayMist',
+  trigger: 'Playmist',
   sections: [
     {
       label: 'PLAYMIST OTT',
@@ -120,7 +120,7 @@ export const playmistMenu: MegaMenuConfig = {
     icon: Play,
     title: 'Enterprise Streaming',
     description: 'Launch your own Netflix-like OTT service with DRM, live TV, and global payment support.',
-    ctaLabel: 'Explore PlayMist',
+    ctaLabel: 'Explore Playmist',
     ctaHref: '#', //https://playmist.softimist.com
   },
   gradient: 'bg-gradient-to-br from-purple-500 via-violet-600 to-pink-500',

@@ -43,7 +43,7 @@ function AboutPage() {
               <p className="mb-4 text-[15px] leading-relaxed text-(--ink-soft)">
                 Imagine launching your own learning platform, streaming service, or content hub — fully branded,
                 fully yours — without spending years building it from scratch. That's what we do. Edushade
-                for education, PlayMist for OTT, and PlayMist Aggregator for content distribution.
+                for education, Playmist for OTT, and Playmist Aggregator for content distribution.
               </p>
               <p className="text-[15px] leading-relaxed text-(--ink-soft)">
                 We handle the hard parts — DRM, payments, multi-tenancy, AI recommendations — so you

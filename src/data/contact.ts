@@ -25,8 +25,8 @@ export const contactInfo: ContactInfo[] = [
 export const contactSubjects: ContactSubject[] = [
   { value: '', label: 'Select a topic' },
   { value: 'edushade', label: 'Edushade LMS' },
-  { value: 'playmist', label: 'PlayMist OTT' },
-  { value: 'aggregator', label: 'PlayMist Aggregator' },
+  { value: 'playmist', label: 'Playmist OTT' },
+  { value: 'aggregator', label: 'Playmist Aggregator' },
   { value: 'custom', label: 'Custom Development' },
   { value: 'partnership', label: 'Partnership' },
   { value: 'other', label: 'Other' },

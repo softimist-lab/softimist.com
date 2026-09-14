@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { title: 'Softimist Limited | Turning Ideas Into Intelligent Solutions' },
-      { name: 'description', content: 'Softimist Limited builds AI-powered SaaS products for EdTech, Media & OTT industries. Explore Edushade LMS and PlayMist OTT platform.' },
+      { name: 'description', content: 'Softimist Limited builds AI-powered SaaS products for EdTech, Media & OTT industries. Explore Edushade LMS and Playmist OTT platform.' },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },

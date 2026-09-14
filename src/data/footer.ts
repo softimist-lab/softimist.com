@@ -13,7 +13,7 @@ export const footerColumns: FooterColumn[] = [
     title: 'Products',
     links: [
       { label: 'Edushade', href: 'https://edushade.com' },
-      { label: 'PlayMist', href: '#' }, //https://playmist.softimist.com
+      { label: 'Playmist', href: '#' }, //https://playmist.softimist.com
       { label: 'Aggregator', href: '#' }, //https://playmist-aggr.softimist.com
     ],
   },
