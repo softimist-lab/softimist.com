@@ -1,4 +1,4 @@
-import type { FooterColumn, SocialLink } from '#/types'
+import type { FooterColumn, FooterLink, SocialLink } from '#/types'
 
 export const footerColumns: FooterColumn[] = [
   {
@@ -76,8 +76,8 @@ export const socialLinks: SocialLink[] = [
   },
 ]
 
-export const policyLinks = [
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms of Use', href: '#' },
-  { label: 'Report Abuse', href: '#' },
+export const policyLinks: FooterLink[] = [
+  { label: 'Privacy Policy', to: '/privacy-policy' },
+  { label: 'Terms of Service', to: '/terms-of-service' },
+  { label: 'Report Abuse', href: 'mailto:support@softimist.com' },
 ]

@@ -73,11 +73,17 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex flex-wrap gap-5">
-            {policyLinks.map((link) => (
-              <a key={link.label} href={link.href} className="text-xs text-[#9CA3AF] transition-colors hover:text-[#9CA3AF]">
-                {link.label}
-              </a>
-            ))}
+            {policyLinks.map((link) =>
+              link.to ? (
+                <Link key={link.label} to={link.to} className="text-xs text-[#9CA3AF] transition-colors hover:text-white">
+                  {link.label}
+                </Link>
+              ) : (
+                <a key={link.label} href={link.href ?? '#'} className="text-xs text-[#9CA3AF] transition-colors hover:text-white">
+                  {link.label}
+                </a>
+              ),
+            )}
           </div>
 
           <p className="m-0 text-xs text-[#9CA3AF]">

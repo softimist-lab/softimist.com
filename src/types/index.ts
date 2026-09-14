@@ -267,3 +267,27 @@ export interface CareerFAQ {
 /* ── Shared ── */
 
 export type SlidePosition = 'center' | 'left' | 'right' | 'hidden'
+
+/* ── Legal ── */
+
+export interface LegalSection {
+  id: string
+  title: string
+  /** Paragraphs rendered in order; each string is one <p>. */
+  body?: string[]
+  /** Optional bullet list rendered after the paragraphs. */
+  bullets?: string[]
+  /** Optional closing paragraphs rendered after the bullet list. */
+  outro?: string[]
+}
+
+export interface LegalDocument {
+  slug: string
+  title: string
+  kicker: string
+  description: string
+  /** ISO date (YYYY-MM-DD) of the last substantive revision. */
+  lastUpdated: string
+  intro: string[]
+  sections: LegalSection[]
+}
