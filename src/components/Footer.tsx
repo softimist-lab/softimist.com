@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { footerColumns, socialLinks, policyLinks } from '#/data/footer'
+import { footerColumns, socialLinks, policyLinks, companyRegistration } from '#/data/footer'
 import type { FooterColumn } from '#/types'
 
 function isLinkColumn(col: FooterColumn): col is { title: string; links: { label: string; to?: string; href?: string }[] } {
@@ -106,6 +106,16 @@ export default function Footer() {
               </a>
             ))}
           </div>
+        </div>
+
+        {/* Company registration */}
+        <div className="mt-6 flex flex-col items-center gap-x-6 gap-y-1 text-center text-xs text-[#6B7280] sm:flex-row sm:justify-center">
+          <span>Softimist Limited</span>
+          {companyRegistration.map((item) => (
+            <span key={item.label}>
+              {item.label} {item.value}
+            </span>
+          ))}
         </div>
       </div>
     </footer>

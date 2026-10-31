@@ -76,6 +76,11 @@ export const socialLinks: SocialLink[] = [
   },
 ]
 
+export const companyRegistration = [
+  { label: 'Certificate of Incorporation No.', value: 'C-203255/2025' },
+  { label: 'Trade License No.', value: 'TRAD/DNCC/004993/2025' },
+]
+
 export const policyLinks: FooterLink[] = [
   { label: 'Privacy Policy', to: '/privacy-policy' },
   { label: 'Terms of Service', to: '/terms-of-service' },
