@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import nodemailer from 'nodemailer'
 
 export const sendCareerEmail = createServerFn({ method: 'POST' })
-  .inputValidator(
+  .validator(
     (input: {
       name: string
       email: string
