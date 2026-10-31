@@ -127,6 +127,7 @@ export const playmistMenu: MegaMenuConfig = {
 }
 
 export const simpleLinks: NavSimpleLink[] = [
+  { to: '/pricing', label: 'Pricing' },
   { to: '/about', label: 'About Us' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact' },

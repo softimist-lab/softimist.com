@@ -2,7 +2,9 @@ import type { LegalDocument } from '#/types'
 
 export const legalContact = {
   company: 'Softimist Limited',
-  address: 'Dhaka, Bangladesh',
+  address: '19/2, Selim Center, West Panthapath, Dhanmondi, Dhaka, PO:1205, Bangladesh',
+  incorporationNumber: 'C-203255/2025',
+  tradeLicenseNumber: 'TRAD/DNCC/004993/2025',
   email: 'info@softimist.com',
   privacyEmail: 'privacy@softimist.com',
   supportEmail: 'support@softimist.com',
@@ -157,7 +159,7 @@ export const termsOfService: LegalDocument = {
   kicker: 'Legal',
   description:
     'The terms that govern your use of the Softimist Limited website, products, and services.',
-  lastUpdated: '2026-09-14',
+  lastUpdated: '2026-10-31',
   intro: [
     `These Terms of Service ("Terms") govern your access to and use of softimist.com and any services, demos, trials, or products made available by ${legalContact.company} ("Softimist", "we", "us", or "our").`,
     'By accessing the website or using our services, you agree to these Terms. If you are agreeing on behalf of a company, you confirm that you have authority to bind that company. If you do not agree, do not use the site or services.',
@@ -231,7 +233,7 @@ export const termsOfService: LegalDocument = {
       id: 'fees',
       title: '8. Fees and Payment',
       body: [
-        'Paid services are invoiced according to the applicable order form or subscription plan. Unless stated otherwise, fees are exclusive of taxes, are payable in the currency stated on the invoice, and are non-refundable except where required by law or expressly agreed in writing. Late payments may result in suspension of the affected services.',
+        'Paid services are invoiced according to the applicable order form or subscription plan. Unless stated otherwise, fees are exclusive of taxes, are payable in the currency stated on the invoice or checkout page. Published plan prices are listed on our Pricing page. Refunds and cancellations are handled as described in our Refund & Cancellation Policy, and access to paid services is provided as described in our Service Delivery Policy. Late payments may result in suspension of the affected services.',
       ],
     },
     {
@@ -291,6 +293,178 @@ export const termsOfService: LegalDocument = {
       title: '16. Contact Us',
       body: [
         `Questions about these Terms? Contact ${legalContact.company} at ${legalContact.email} or ${legalContact.phone}, or write to us at ${legalContact.address}.`,
+        `${legalContact.company} is incorporated in Bangladesh under Certificate of Incorporation No. ${legalContact.incorporationNumber} and holds Trade License No. ${legalContact.tradeLicenseNumber}.`,
+      ],
+    },
+  ],
+}
+
+export const refundPolicy: LegalDocument = {
+  slug: 'refund-policy',
+  title: 'Refund & Cancellation Policy',
+  kicker: 'Legal',
+  description:
+    'How cancellations, refunds, and billing disputes work for Softimist Limited subscriptions, licences, and custom development services.',
+  lastUpdated: '2026-10-31',
+  intro: [
+    `This Refund & Cancellation Policy applies to purchases made from ${legalContact.company} ("Softimist", "we", "us", or "our"), including subscriptions to Edushade, licences for Playmist and Playmist Aggregator, and custom development or support services.`,
+    'It should be read together with our Terms of Service and Service Delivery Policy. Where a signed agreement, order form, or statement of work sets different refund terms, that document applies to the purchase it covers.',
+  ],
+  sections: [
+    {
+      id: 'free-trial',
+      title: '1. Free Trials',
+      body: [
+        'Edushade subscription plans include a 14-day free trial. You are not charged during the trial, and you can cancel at any time before it ends without paying anything. If you do not cancel, your selected plan starts at the end of the trial and the first billing period is charged.',
+      ],
+    },
+    {
+      id: 'cancellation',
+      title: '2. Cancelling a Subscription',
+      body: [
+        'You can cancel a subscription at any time from your account billing settings or by emailing ' +
+          legalContact.supportEmail +
+          ' from the account owner’s email address. Subscriptions are billed in advance, and cancellation takes effect at the end of the current billing period. Your platform remains available until then, and no further charges are made after that date.',
+        'After cancellation, your data is kept for 30 days so you can export it, after which it is deleted in line with our Privacy Policy unless the law requires us to keep it longer.',
+      ],
+    },
+    {
+      id: 'subscription-refunds',
+      title: '3. Refunds for Subscriptions',
+      body: ['We issue a full or partial refund for a subscription payment in the following cases:'],
+      bullets: [
+        'First payment: you request a refund within 7 days of your first paid billing period starting.',
+        'Duplicate or incorrect charge: you were charged more than once for the same period, or charged an amount different from the price shown at checkout.',
+        'Charge after cancellation: you were charged for a period that started after your cancellation took effect.',
+        'Service not delivered: we did not provision your platform within the timeframe in our Service Delivery Policy and could not resolve the issue after you contacted us.',
+        'Extended service failure: the service was unavailable for a sustained period due to a fault on our side and we could not restore it within a reasonable time.',
+      ],
+      outro: [
+        'Outside these cases, subscription fees for a billing period that has already started are non-refundable, and we do not issue partial refunds for unused time, unused features, or downgrades made mid-period. Plan upgrades take effect immediately and are charged on a prorated basis.',
+      ],
+    },
+    {
+      id: 'custom-services',
+      title: '4. Custom Development, Setup, and Licences',
+      body: [
+        'Custom development, platform setup, branded mobile app builds, migrations, and Playmist or Playmist Aggregator licences are delivered under a quotation, order form, or statement of work. For these services:',
+      ],
+      bullets: [
+        'Payments for milestones that have been delivered and accepted are non-refundable.',
+        'If you cancel before work on a milestone has started, any advance paid for that milestone is refunded, less any third-party costs already incurred on your behalf.',
+        'If you cancel while a milestone is in progress, we invoice or retain fees for the work completed up to the cancellation date and refund the remainder of any advance.',
+      ],
+    },
+    {
+      id: 'non-refundable',
+      title: '5. Non-Refundable Items',
+      body: ['The following are not refundable once purchased or incurred, because they are paid to third parties on your behalf:'],
+      bullets: [
+        'Domain registrations and renewals.',
+        'Apple App Store and Google Play developer account fees.',
+        'SMS, email, video delivery, DRM licence, or other usage-based third-party charges already consumed.',
+        'Payment gateway or bank transaction fees charged by your own payment provider.',
+      ],
+    },
+    {
+      id: 'how-to-request',
+      title: '6. How to Request a Refund',
+      body: [
+        `Email ${legalContact.supportEmail} with your account or company name, the invoice or transaction number, the payment date and amount, and the reason for your request. We acknowledge refund requests within 2 business days and tell you our decision within 7 business days.`,
+        'Approved refunds are returned to the original payment method. Depending on your bank, card issuer, or mobile wallet provider, the refund usually appears within 7 to 14 business days after we process it. Where the original payment method cannot receive a refund, we will arrange a bank transfer to an account in the payer’s name.',
+      ],
+    },
+    {
+      id: 'chargebacks',
+      title: '7. Billing Disputes and Chargebacks',
+      body: [
+        'If you believe a charge is wrong, please contact us before raising a dispute or chargeback with your bank or card issuer, so we can investigate and correct it quickly. If a chargeback is raised, we may suspend the related account until the dispute is resolved.',
+      ],
+    },
+    {
+      id: 'changes',
+      title: '8. Changes to This Policy',
+      body: [
+        'We may update this policy from time to time. The version in force on the date of your purchase applies to that purchase. Material changes will be reflected in the "Last updated" date above.',
+      ],
+    },
+    {
+      id: 'contact',
+      title: '9. Contact Us',
+      body: [
+        `For refund or cancellation questions, contact ${legalContact.company} at ${legalContact.supportEmail} or ${legalContact.phone}, or write to us at ${legalContact.address}.`,
+        `${legalContact.company} is incorporated in Bangladesh under Certificate of Incorporation No. ${legalContact.incorporationNumber} and holds Trade License No. ${legalContact.tradeLicenseNumber}.`,
+      ],
+    },
+  ],
+}
+
+export const deliveryPolicy: LegalDocument = {
+  slug: 'delivery-policy',
+  title: 'Service Delivery Policy',
+  kicker: 'Legal',
+  description:
+    'How and when Softimist Limited delivers access to subscriptions, licences, and custom development services after purchase.',
+  lastUpdated: '2026-10-31',
+  intro: [
+    `${legalContact.company} sells software subscriptions, software licences, and professional services. We do not sell or ship physical goods. Everything you buy from us is delivered electronically — as access to an online platform, account credentials, software builds, or completed project work.`,
+    'This policy explains what you receive after payment and how long it takes. Where a signed agreement, order form, or statement of work sets a different delivery schedule, that document applies to the purchase it covers.',
+  ],
+  sections: [
+    {
+      id: 'subscriptions',
+      title: '1. Edushade Subscriptions',
+      body: [
+        'Edushade plans are delivered instantly. As soon as you complete sign-up and checkout, your academy is created and you receive a confirmation email with your login link. You can start building courses straight away.',
+        'Plan features that need extra setup are delivered on the following timelines, counted in business days from payment or from receiving everything we need from you, whichever is later:',
+      ],
+      bullets: [
+        'Custom domain connection: within 2 business days of your DNS records being pointed to us.',
+        'Content migration from another platform (Grow plan and above): scheduled with you, usually completed within 10 business days.',
+        'Branded mobile app (Grow plan and above): submitted to the app stores within 15 business days of receiving your branding assets and developer account access. Final publication depends on Apple and Google review times, which we do not control.',
+      ],
+    },
+    {
+      id: 'licences',
+      title: '2. Playmist and Playmist Aggregator Licences',
+      body: [
+        'Playmist and Playmist Aggregator are delivered as managed, white-label deployments. After the order form is signed and the first payment is received, we share an onboarding plan with agreed milestones. A standard deployment is typically live within 4 to 8 weeks, depending on the apps, integrations, and content volume in scope.',
+      ],
+    },
+    {
+      id: 'custom-development',
+      title: '3. Custom Development and Professional Services',
+      body: [
+        'Custom development, integrations, and consulting are delivered in milestones defined in your quotation or statement of work. At each milestone we provide access to a staging environment, source code, builds, or documentation as agreed, and you have the review period stated in the agreement to accept the milestone or request fixes.',
+      ],
+    },
+    {
+      id: 'confirmation',
+      title: '4. Order Confirmation and Invoices',
+      body: [
+        'Every payment generates an order confirmation and an invoice, sent to the billing email address on your account. Invoices are also available in your account billing settings. If you have not received a confirmation within one hour of paying, please check your spam folder and then contact us.',
+      ],
+    },
+    {
+      id: 'delays',
+      title: '5. Delays and Failed Delivery',
+      body: [
+        'If we cannot deliver within the timeframes above for reasons on our side, we will tell you the cause and a revised date. If we still cannot deliver, you can cancel the affected purchase and receive a refund as described in our Refund & Cancellation Policy. Delays caused by missing information, assets, approvals, or third-party reviews (such as app store review) extend the delivery timeline accordingly.',
+      ],
+    },
+    {
+      id: 'support',
+      title: '6. Ongoing Service and Support',
+      body: [
+        'Subscriptions include continued access to the platform, hosting, security updates, and support for as long as the subscription is active. Support is provided by email on all plans, with priority support on the Grow plan and above. Uptime and response-time commitments for licensed products are set out in the relevant agreement.',
+      ],
+    },
+    {
+      id: 'contact',
+      title: '7. Contact Us',
+      body: [
+        `If you have a question about the delivery of something you have purchased, contact ${legalContact.company} at ${legalContact.supportEmail} or ${legalContact.phone}, or write to us at ${legalContact.address}.`,
+        `${legalContact.company} is incorporated in Bangladesh under Certificate of Incorporation No. ${legalContact.incorporationNumber} and holds Trade License No. ${legalContact.tradeLicenseNumber}.`,
       ],
     },
   ],

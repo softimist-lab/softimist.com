@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router'
 import { footerColumns, socialLinks, policyLinks, companyRegistration } from '#/data/footer'
-import type { FooterColumn } from '#/types'
+import type { FooterColumn, FooterLinkColumn } from '#/types'
 
-function isLinkColumn(col: FooterColumn): col is { title: string; links: { label: string; to?: string; href?: string }[] } {
+function isLinkColumn(col: FooterColumn): col is FooterLinkColumn {
   return 'links' in col
 }
 
@@ -39,7 +39,7 @@ export default function Footer() {
                   {col.links.map((link) => (
                     <li key={link.label}>
                       {link.to ? (
-                        <Link to={link.to} className="text-sm transition-colors duration-200">
+                        <Link to={link.to} hash={link.hash} className="text-sm transition-colors duration-200">
                           {link.label}
                         </Link>
                       ) : (

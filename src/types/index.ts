@@ -196,6 +196,7 @@ export interface ContactSubject {
 export interface FooterLink {
   label: string
   to?: string
+  hash?: string
   href?: string
 }
 
@@ -267,6 +268,41 @@ export interface CareerFAQ {
 /* ── Shared ── */
 
 export type SlidePosition = 'center' | 'left' | 'right' | 'hidden'
+
+/* ── Pricing ── */
+
+export interface PricingPlan {
+  id: string
+  name: string
+  audience: string
+  description: string
+  trialDays: number
+  /** Priced on request instead of from the region table. */
+  quoted?: boolean
+  badge?: string
+  highlights: string[]
+}
+
+export interface PricingRegion {
+  /** ISO 3166-1 alpha-2 country code, or INTL for the fallback. */
+  code: string
+  name: string
+  currency: string
+  symbol: string
+  symbolAfter?: boolean
+  /** Prefix of the Edushade plan slug for this region, e.g. `bd` → `bd-spark`. */
+  planPrefix: string
+  /** Monthly price per plan id, in whole currency units. */
+  prices: Record<string, number>
+  paymentMethods: string
+}
+
+export interface QuotedProduct {
+  name: string
+  description: string
+  pricing: string
+  includes: string[]
+}
 
 /* ── Legal ── */
 

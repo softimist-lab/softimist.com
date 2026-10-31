@@ -17,7 +17,7 @@ export const contactInfo: ContactInfo[] = [
   {
     title: 'Bangladesh Operations',
     value: 'Softimist Limited',
-    description: 'Dhaka, Bangladesh',
+    description: '19/2, Selim Center, West Panthapath, Dhanmondi, Dhaka-1205, Bangladesh',
     icon: MapPin,
   },
 ]
