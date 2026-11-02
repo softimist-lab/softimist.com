@@ -315,7 +315,7 @@ export const refundPolicy: LegalDocument = {
       id: 'free-trial',
       title: '1. Free Trials',
       body: [
-        'Edushade subscription plans include a 14-day free trial. You are not charged during the trial, and you can cancel at any time before it ends without paying anything. If you do not cancel, your selected plan starts at the end of the trial and the first billing period is charged.',
+        'Edushade subscription plans include a 14-day free trial. You do not need to pay to start a trial and you are not charged during it. To keep your plan after the trial, you pay for your first billing period from Billing in your dashboard.',
       ],
     },
     {
@@ -324,8 +324,9 @@ export const refundPolicy: LegalDocument = {
       body: [
         'You can cancel a subscription at any time from your account billing settings or by emailing ' +
           legalContact.supportEmail +
-          ' from the account owner’s email address. Subscriptions are billed in advance, and cancellation takes effect at the end of the current billing period. Your platform remains available until then, and no further charges are made after that date.',
-        'After cancellation, your data is kept for 30 days so you can export it, after which it is deleted in line with our Privacy Policy unless the law requires us to keep it longer.',
+          ' from the account owner’s email address. Subscriptions are billed in advance, and cancellation takes effect at the end of the current billing period. Your paid plan remains available until then, and no further charges are made after that date.',
+        'When a paid plan ends, paid features switch off but your workspace and content are not automatically deleted. To have them deleted, contact us and we will handle the request in line with our Privacy Policy.',
+        'In Bangladesh, nothing is charged automatically: each billing period is a separate invoice with a payment link. To stop, simply cancel or do not pay the next invoice.',
       ],
     },
     {
@@ -415,7 +416,7 @@ export const deliveryPolicy: LegalDocument = {
       id: 'subscriptions',
       title: '1. Edushade Subscriptions',
       body: [
-        'Edushade plans are delivered instantly. As soon as you complete sign-up and checkout, your academy is created and you receive a confirmation email with your login link. You can start building courses straight away.',
+        'Edushade plans are delivered online. When you complete sign-up, your academy is created and your free trial starts, so you can begin building courses straight away. Paying for a plan continues your access without interruption.',
         'Plan features that need extra setup are delivered on the following timelines, counted in business days from payment or from receiving everything we need from you, whichever is later:',
       ],
       bullets: [
@@ -456,7 +457,7 @@ export const deliveryPolicy: LegalDocument = {
       id: 'support',
       title: '6. Ongoing Service and Support',
       body: [
-        'Subscriptions include continued access to the platform, hosting, security updates, and support for as long as the subscription is active. Support is provided by email on all plans, with priority support on the Grow plan and above. Uptime and response-time commitments for licensed products are set out in the relevant agreement.',
+        'Subscriptions include continued access to the platform, hosting, security updates, and support for as long as the subscription is active. The support included with each plan is shown on our Pricing page. Uptime and response-time commitments for licensed products are set out in the relevant agreement.',
       ],
     },
     {

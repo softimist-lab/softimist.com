@@ -1,17 +1,12 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Check } from 'lucide-react'
 import { cn } from '#/lib/utils'
-import { edushadePlans, quotedProducts, formatPrice, planHighlights, planPrice } from '#/data/pricing'
-import { loadPricingRegion, validateCountrySearch } from '#/lib/region'
-import RegionSwitcher from '#/components/RegionSwitcher'
+import { quotedProducts, formatPrice } from '#/data/pricing'
+import { loadPricingMarket } from '#/lib/region'
 import { btnPrimaryClass, btnSecondaryClass, cardClass, kickerClass, displayTitleClass, gradientTextClass, sectionGradientMutedClass } from '#/lib/styles'
 
 export const Route = createFileRoute('/pricing')({
-  validateSearch: (search: Record<string, unknown>): { country?: string } => ({
-    country: validateCountrySearch(search),
-  }),
-  loaderDeps: ({ search }) => ({ country: search.country }),
-  loader: ({ deps }) => loadPricingRegion(deps.country),
+  loader: () => loadPricingMarket(),
   head: () => ({
     meta: [
       { title: 'Pricing | Softimist Limited' },
@@ -22,7 +17,7 @@ export const Route = createFileRoute('/pricing')({
 })
 
 function PricingPage() {
-  const { region } = Route.useLoaderData()
+  const { market } = Route.useLoaderData()
 
   return (
     <main>
@@ -38,7 +33,7 @@ function PricingPage() {
               Simple, <span className={gradientTextClass('orange')}>Transparent Pricing</span>
             </h1>
             <p className="rise-in text-lg leading-relaxed text-(--ink-soft)" style={{ animationDelay: '160ms' }}>
-              Start any Edushade plan with a 14-day free trial. No commission on your sales, cancel anytime.
+              Start Edushade Spark, Grow or Scale with a 14-day free trial. No commission on your sales, cancel anytime.
             </p>
           </div>
         </div>
@@ -49,14 +44,13 @@ function PricingPage() {
         <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
           <div className="mb-10 text-center">
             <h2 className={cn(displayTitleClass, 'mb-2 text-2xl font-bold text-(--ink) sm:text-3xl')}>Edushade LMS</h2>
-            <p className="mb-5 text-sm text-(--ink-soft)">
-              Prices in {region.currency} for {region.name}, billed monthly, exclusive of applicable taxes.
+            <p className="text-sm text-(--ink-soft)">
+              Prices in {market.currency}, billed {market.billing === 'card_on_file' ? 'monthly or yearly' : 'monthly'}. Applicable taxes may be added at payment.
             </p>
-            <RegionSwitcher region={region} />
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {edushadePlans.map((plan) => {
-              const price = planPrice(plan, region)
+            {market.plans.map((plan) => {
+              const price = plan.monthlyPrice
               return (
               <div
                 key={plan.id}
@@ -73,9 +67,12 @@ function PricingPage() {
                   {price !== null ? (
                     <>
                       <span className={cn(displayTitleClass, 'text-3xl font-extrabold text-(--ink)')}>
-                        {formatPrice(price, region)}
+                        {formatPrice(price, market)}
                       </span>
                       <span className="text-sm text-(--ink-muted)"> / month</span>
+                      {plan.annualPrice !== null && (
+                        <div className="mt-1 text-xs text-(--ink-muted)">or {formatPrice(plan.annualPrice, market)} billed yearly</div>
+                      )}
                     </>
                   ) : (
                     <span className={cn(displayTitleClass, 'text-3xl font-extrabold text-(--ink)')}>Custom</span>
@@ -83,7 +80,7 @@ function PricingPage() {
                 </div>
                 <p className="mb-5 text-sm leading-relaxed text-(--ink-soft)">{plan.description}</p>
                 <ul className="m-0 mb-6 flex-1 list-none space-y-2.5 p-0">
-                  {planHighlights(plan, region).map((item) => (
+                  {plan.highlights.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-(--ink-soft)">
                       <Check size={14} strokeWidth={2.5} className="mt-1 shrink-0 text-(--color-primary)" />
                       {item}
@@ -93,7 +90,7 @@ function PricingPage() {
                 {price !== null ? (
                   <Link
                     to="/checkout"
-                    search={{ plan: plan.id, country: region.code }}
+                    search={{ plan: plan.id }}
                     className={plan.badge ? btnPrimaryClass('w-full justify-center') : btnSecondaryClass('w-full justify-center')}
                   >
                     Buy {plan.name}
@@ -146,7 +143,10 @@ function PricingPage() {
       <section className="py-16">
         <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
           <p className="mx-auto max-w-3xl text-center text-sm leading-relaxed text-(--ink-muted)">
-            Subscriptions renew automatically each month until cancelled. See our{' '}
+            {market.billing === 'card_on_file'
+              ? 'Subscriptions renew automatically until cancelled.'
+              : 'Each billing period is a separate invoice with a payment link, and nothing is charged automatically.'}{' '}
+            See our{' '}
             <Link to="/refund-policy" className="text-(--color-primary) underline">Refund & Cancellation Policy</Link>,{' '}
             <Link to="/delivery-policy" className="text-(--color-primary) underline">Service Delivery Policy</Link>, and{' '}
             <Link to="/terms-of-service" className="text-(--color-primary) underline">Terms of Service</Link> for details.

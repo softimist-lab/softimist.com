@@ -1,182 +1,190 @@
-import type { PricingPlan, PricingRegion, QuotedProduct } from '#/types'
+import type { PricingMarket, PricingPlan, QuotedProduct } from '#/types'
 
 export const EDUSHADE_REGISTER_URL = 'https://www.edushade.com/register'
 
-/** Placeholder in plan highlights, replaced with the region's payment methods. */
-export const PAYMENT_METHODS = '{paymentMethods}'
-
-/** Plan structure mirrors edushade.com/api/v1/public/saas-billing/plans. Prices live on each region. */
-export const edushadePlans: PricingPlan[] = [
-  {
-    id: 'spark',
-    name: 'Spark',
-    audience: 'Up to 10,000 students',
-    description: 'Every core feature unlimited, 0% commission — up to 10,000 students.',
-    trialDays: 14,
-    highlights: [
-      'Every core feature, unlimited',
-      PAYMENT_METHODS,
-      '0% commission and transaction fees',
-      'Student mobile app',
-      'Email support',
-    ],
-  },
-  {
-    id: 'grow',
-    name: 'Grow',
-    audience: 'Up to 20,000 students',
-    description: 'Everything in Spark plus your own branded app — up to 20,000 students.',
-    trialDays: 14,
-    badge: 'Most Popular',
-    highlights: [
-      'Everything in Spark',
-      'Your own branded mobile app',
-      'AI tutor integration',
-      'Migration assistance',
-      '24/7 priority support',
-    ],
-  },
-  {
-    id: 'scale',
-    name: 'Scale',
-    audience: 'Up to 30,000 students',
-    description: 'Everything in Grow plus full white-label — up to 30,000 students.',
-    trialDays: 14,
-    highlights: [
-      'Everything in Grow',
-      'Full white-label',
-      'Advanced analytics and audit logs',
-      'Dedicated account manager',
-      'Custom integrations',
-    ],
-  },
-  {
-    id: 'enterprise',
-    name: 'Enterprise',
-    audience: 'More than 30,000 students',
-    description: 'Everything in Scale, sized beyond 30,000 students with SSO and a dedicated environment.',
-    trialDays: 0,
-    quoted: true,
-    highlights: [
-      'Everything in Scale',
-      'Capacity sized to your institution',
-      'Single Sign-On (SSO) & SAML',
-      'Dedicated infrastructure',
-      'Onboarding, migration & SLA',
-    ],
-  },
-]
-
 /**
- * Monthly prices per region, in whole units of the local currency.
- * Non-BD regions are anchored to USD 49 / 129 / 199 and rounded to local price points.
- * `planPrefix` builds the Edushade plan slug, e.g. `bd` + `spark` → `bd-spark`.
+ * Mirrors Edushade's two catalogues (saas-billing-service, `plans` table). They
+ * are separate offers rather than conversions of each other: Bangladesh is sized
+ * by student capacity and paid per invoice, everywhere else is sold in USD by
+ * feature set and renews on a stored card. Update here when the catalogue changes.
  */
-export const pricingRegions: PricingRegion[] = [
-  {
+export const pricingMarkets: Record<'BD' | 'GLOBAL', PricingMarket> = {
+  BD: {
     code: 'BD',
-    name: 'Bangladesh',
     currency: 'BDT',
     symbol: '৳',
-    planPrefix: 'bd',
-    prices: { spark: 5000, grow: 12500, scale: 20000 },
-    paymentMethods: 'bKash · Nagad · Rocket · Card · SSLCommerz',
+    billing: 'invoice_link',
+    plans: [
+      {
+        id: 'spark',
+        slug: 'bd-spark',
+        name: 'Spark',
+        audience: 'Up to 10,000 students',
+        description: 'Every core feature unlimited, 0% commission — up to 10,000 students.',
+        monthlyPrice: 5000,
+        annualPrice: null,
+        trialDays: 14,
+        highlights: [
+          'Every core feature, unlimited',
+          'bKash · Nagad · Rocket · Card · SSLCommerz',
+          '0% commission and transaction fees',
+          'Student mobile app',
+          'Email support',
+        ],
+      },
+      {
+        id: 'grow',
+        slug: 'bd-grow',
+        name: 'Grow',
+        audience: 'Up to 20,000 students',
+        description: 'Everything in Spark plus your own branded app — up to 20,000 students.',
+        monthlyPrice: 12500,
+        annualPrice: null,
+        trialDays: 14,
+        badge: 'Most Popular',
+        highlights: [
+          'Everything in Spark',
+          'Your own branded mobile app',
+          'AI tutor integration',
+          'Migration assistance',
+          '24/7 priority support',
+        ],
+      },
+      {
+        id: 'scale',
+        slug: 'bd-scale',
+        name: 'Scale',
+        audience: 'Up to 30,000 students',
+        description: 'Everything in Grow plus full white-label — up to 30,000 students.',
+        monthlyPrice: 20000,
+        annualPrice: null,
+        trialDays: 14,
+        highlights: [
+          'Everything in Grow',
+          'Full white-label',
+          'Advanced analytics and audit logs',
+          'Dedicated account manager',
+          'Custom integrations',
+        ],
+      },
+      {
+        id: 'enterprise',
+        slug: 'bd-enterprise',
+        name: 'Enterprise',
+        audience: 'More than 30,000 students',
+        description: 'Everything in Scale, sized beyond 30,000 students with SSO and a dedicated environment.',
+        monthlyPrice: null,
+        annualPrice: null,
+        trialDays: 0,
+        highlights: [
+          'Everything in Scale',
+          'Capacity sized to your institution',
+          'Single Sign-On (SSO) & SAML',
+          'Dedicated infrastructure',
+          'Onboarding, migration & SLA',
+        ],
+      },
+    ],
   },
-  {
-    code: 'SG',
-    name: 'Singapore',
-    currency: 'SGD',
-    symbol: 'S$',
-    planPrefix: 'sg',
-    prices: { spark: 65, grow: 169, scale: 259 },
-    paymentMethods: 'PayNow · Cards · GrabPay',
-  },
-  {
-    code: 'MY',
-    name: 'Malaysia',
-    currency: 'MYR',
-    symbol: 'RM',
-    planPrefix: 'my',
-    prices: { spark: 219, grow: 569, scale: 879 },
-    paymentMethods: 'FPX · DuitNow · Touch ’n Go · Cards',
-  },
-  {
-    code: 'TH',
-    name: 'Thailand',
-    currency: 'THB',
-    symbol: '฿',
-    planPrefix: 'th',
-    prices: { spark: 1690, grow: 4490, scale: 6890 },
-    paymentMethods: 'PromptPay · TrueMoney · Cards',
-  },
-  {
-    code: 'VN',
-    name: 'Vietnam',
-    currency: 'VND',
-    symbol: '₫',
-    symbolAfter: true,
-    planPrefix: 'vn',
-    prices: { spark: 1190000, grow: 3190000, scale: 4890000 },
-    paymentMethods: 'VietQR · MoMo · ZaloPay · Cards',
-  },
-  {
-    code: 'ID',
-    name: 'Indonesia',
-    currency: 'IDR',
-    symbol: 'Rp',
-    planPrefix: 'id',
-    prices: { spark: 790000, grow: 2090000, scale: 3190000 },
-    paymentMethods: 'QRIS · Virtual Accounts · OVO · DANA · Cards',
-  },
-  {
-    code: 'PH',
-    name: 'Philippines',
-    currency: 'PHP',
-    symbol: '₱',
-    planPrefix: 'ph',
-    prices: { spark: 2790, grow: 7390, scale: 11390 },
-    paymentMethods: 'GCash · Maya · QR Ph · Cards',
-  },
-  {
-    code: 'INTL',
-    name: 'Other countries',
+  GLOBAL: {
+    code: 'GLOBAL',
     currency: 'USD',
-    symbol: 'US$',
-    planPrefix: 'intl',
-    prices: { spark: 49, grow: 129, scale: 199 },
-    paymentMethods: 'Cards · PayPal · Stripe',
+    symbol: '$',
+    billing: 'card_on_file',
+    plans: [
+      {
+        id: 'spark',
+        slug: 'spark',
+        name: 'Spark',
+        audience: 'Perfect for solo educators',
+        description: 'Everything an independent creator needs to launch their first courses and programs.',
+        monthlyPrice: 69,
+        annualPrice: 660,
+        trialDays: 14,
+        highlights: [
+          '1,000 active students',
+          '5 courses · 10 digital products',
+          '5 instructors · 1 admin',
+          'Course certificates',
+          'Unlimited forms & contacts',
+          'No commission / transaction fee',
+        ],
+      },
+      {
+        id: 'grow',
+        slug: 'grow',
+        name: 'Grow',
+        audience: 'For expanding academies',
+        description: 'Built to scale programs, manage cohorts, and keep learning consistent.',
+        monthlyPrice: 99,
+        annualPrice: 948,
+        trialDays: 14,
+        badge: 'Most Popular',
+        highlights: [
+          '10,000 active students',
+          '15 instructors · 5 admins',
+          'Learning Paths & verifiable transcripts',
+          'Open Badges & UGC / ECTS grading',
+          'Branded mobile app',
+          'Unlimited meetings / counselling',
+          'Migration help & 24/7 live chat',
+        ],
+      },
+      {
+        id: 'scale',
+        slug: 'scale',
+        name: 'Scale',
+        audience: 'For coaching centers',
+        description: 'Advanced delivery, white-label web, and developer tools for academies.',
+        monthlyPrice: 249,
+        annualPrice: 2388,
+        trialDays: 14,
+        highlights: [
+          '25,000 active students',
+          'Unlimited courses & instructors',
+          'Audit logs & webhooks',
+          'CLR, xAPI & accreditation tools',
+          'Remove Edushade branding · custom roles',
+          'Priority support & migration',
+        ],
+      },
+      {
+        id: 'enterprise',
+        slug: 'enterprise',
+        name: 'Enterprise',
+        audience: 'Built for institutional scale',
+        description: 'Governance, compliance, and dedicated support for universities and large institutions.',
+        monthlyPrice: null,
+        annualPrice: null,
+        trialDays: 0,
+        highlights: [
+          'Unlimited students, courses & staff',
+          'Dedicated account manager',
+          'White-glove migration & onboarding',
+          'Single Sign-On & audit logs',
+          'Custom AI credits & usage limits',
+          'Custom integrations & SLA',
+        ],
+      },
+    ],
   },
-]
-
-export const DEFAULT_REGION_CODE = 'INTL'
-
-export function resolveRegion(country: string | undefined): PricingRegion {
-  const code = country?.toUpperCase()
-  return (
-    pricingRegions.find((region) => region.code === code) ??
-    pricingRegions.find((region) => region.code === DEFAULT_REGION_CODE)!
-  )
 }
 
-export function planPrice(plan: PricingPlan, region: PricingRegion): number | null {
-  return plan.quoted ? null : region.prices[plan.id] ?? null
+/** An unknown country gets the global catalogue, as it does on Edushade. */
+export function marketForCountry(country: string | null | undefined): PricingMarket {
+  return country?.toUpperCase() === 'BD' ? pricingMarkets.BD : pricingMarkets.GLOBAL
 }
 
-export function planSlug(plan: PricingPlan, region: PricingRegion) {
-  return `${region.planPrefix}-${plan.id}`
+export function formatPrice(amount: number, market: PricingMarket) {
+  return `${market.symbol}${amount.toLocaleString('en-US')}`
 }
 
-export function planHighlights(plan: PricingPlan, region: PricingRegion) {
-  return plan.highlights.map((item) => (item === PAYMENT_METHODS ? region.paymentMethods : item))
+export function purchasablePlans(market: PricingMarket): PricingPlan[] {
+  return market.plans.filter((plan) => plan.monthlyPrice !== null)
 }
 
-export function formatPrice(amount: number, region: PricingRegion) {
-  const value = amount.toLocaleString('en-US')
-  return region.symbolAfter ? `${value}${region.symbol}` : `${region.symbol}${value}`
-}
-
-export function findPlan(id: string | undefined) {
-  return edushadePlans.find((plan) => plan.id === id && !plan.quoted)
+export function findPlan(market: PricingMarket, id: string | undefined) {
+  return purchasablePlans(market).find((plan) => plan.id === id)
 }
 
 export const quotedProducts: QuotedProduct[] = [

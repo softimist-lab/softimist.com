@@ -272,29 +272,29 @@ export type SlidePosition = 'center' | 'left' | 'right' | 'hidden'
 /* ── Pricing ── */
 
 export interface PricingPlan {
+  /** The tier, shared across markets. */
   id: string
+  /** Plan slug understood by edushade.com/register?plan= */
+  slug: string
   name: string
   audience: string
   description: string
+  /** Whole currency units per month; null means quoted on request. */
+  monthlyPrice: number | null
+  /** Whole currency units per year; null means not sold annually. */
+  annualPrice: number | null
   trialDays: number
-  /** Priced on request instead of from the region table. */
-  quoted?: boolean
   badge?: string
   highlights: string[]
 }
 
-export interface PricingRegion {
-  /** ISO 3166-1 alpha-2 country code, or INTL for the fallback. */
-  code: string
-  name: string
+export interface PricingMarket {
+  code: 'BD' | 'GLOBAL'
   currency: string
   symbol: string
-  symbolAfter?: boolean
-  /** Prefix of the Edushade plan slug for this region, e.g. `bd` → `bd-spark`. */
-  planPrefix: string
-  /** Monthly price per plan id, in whole currency units. */
-  prices: Record<string, number>
-  paymentMethods: string
+  /** `card_on_file` renews on a stored card; `invoice_link` is paid per invoice. */
+  billing: 'card_on_file' | 'invoice_link'
+  plans: PricingPlan[]
 }
 
 export interface QuotedProduct {
