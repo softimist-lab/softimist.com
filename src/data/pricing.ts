@@ -12,7 +12,6 @@ export const pricingMarkets: Record<'BD' | 'GLOBAL', PricingMarket> = {
   BD: {
     code: 'BD',
     currency: 'BDT',
-    symbol: '৳',
     billing: 'invoice_link',
     plans: [
       {
@@ -89,7 +88,6 @@ export const pricingMarkets: Record<'BD' | 'GLOBAL', PricingMarket> = {
   GLOBAL: {
     code: 'GLOBAL',
     currency: 'USD',
-    symbol: '$',
     billing: 'card_on_file',
     plans: [
       {
@@ -176,7 +174,7 @@ export function marketForCountry(country: string | null | undefined): PricingMar
 }
 
 export function formatPrice(amount: number, market: PricingMarket) {
-  return `${market.symbol}${amount.toLocaleString('en-US')}`
+  return `${market.currency} ${amount.toLocaleString('en-US')}`
 }
 
 export function purchasablePlans(market: PricingMarket): PricingPlan[] {

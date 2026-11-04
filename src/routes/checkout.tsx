@@ -136,7 +136,7 @@ function CheckoutPage() {
                   <span>{formatPrice(0, market)}</span>
                 </div>
                 <p className="mb-6 text-xs text-(--ink-muted)">
-                  {formatPrice(price, market)} / month in {market.currency} if you continue after your trial. Applicable taxes may be added at payment.
+                  {formatPrice(price, market)} / month if you continue after your trial. Applicable taxes may be added at payment.
                 </p>
 
                 <label className="mb-5 flex cursor-pointer items-start gap-2.5 text-xs leading-relaxed text-(--ink-soft)">

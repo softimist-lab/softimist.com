@@ -291,7 +291,6 @@ export interface PricingPlan {
 export interface PricingMarket {
   code: 'BD' | 'GLOBAL'
   currency: string
-  symbol: string
   /** `card_on_file` renews on a stored card; `invoice_link` is paid per invoice. */
   billing: 'card_on_file' | 'invoice_link'
   plans: PricingPlan[]
