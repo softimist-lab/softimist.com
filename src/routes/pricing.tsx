@@ -1,12 +1,11 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Check } from 'lucide-react'
 import { cn } from '#/lib/utils'
-import { quotedProducts, formatPrice } from '#/data/pricing'
-import { loadPricingMarket } from '#/lib/region'
+import { pricingMarkets, quotedProducts, formatPrice } from '#/data/pricing'
+import type { PricingMarket } from '#/types'
 import { btnPrimaryClass, btnSecondaryClass, cardClass, kickerClass, displayTitleClass, gradientTextClass, sectionGradientMutedClass } from '#/lib/styles'
 
 export const Route = createFileRoute('/pricing')({
-  loader: () => loadPricingMarket(),
   head: () => ({
     meta: [
       { title: 'Pricing | Softimist Limited' },
@@ -16,39 +15,22 @@ export const Route = createFileRoute('/pricing')({
   component: PricingPage,
 })
 
-function PricingPage() {
-  const { market } = Route.useLoaderData()
+const MARKET_COPY = {
+  BD: { title: 'Pricing in BDT', note: 'For customers in Bangladesh. Prices in Bangladeshi Taka (BDT), billed monthly.' },
+  GLOBAL: { title: 'Pricing in USD', note: 'For customers outside Bangladesh. Prices in US Dollars (USD), billed monthly or yearly.' },
+}
 
+/** Every visitor sees both price lists. */
+function MarketPlans({ market }: { market: PricingMarket }) {
   return (
-    <main>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(249,115,22,0.08),transparent),radial-gradient(ellipse_60%_40%_at_100%_0%,rgba(59,130,246,0.04),transparent)] pb-12 pt-20 sm:pb-16 sm:pt-28">
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2">
-          <div className="h-[400px] w-[700px] rounded-full bg-[radial-gradient(ellipse,var(--glow-orange),transparent_70%)] opacity-40" />
-        </div>
-        <div className="relative z-10 mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className={cn(kickerClass, 'rise-in mb-3 inline-block')}>Pricing</span>
-            <h1 className={cn(displayTitleClass, 'rise-in mb-6 text-4xl font-extrabold leading-tight text-(--ink) sm:text-5xl')} style={{ animationDelay: '80ms' }}>
-              Simple, <span className={gradientTextClass('orange')}>Transparent Pricing</span>
-            </h1>
-            <p className="rise-in text-lg leading-relaxed text-(--ink-soft)" style={{ animationDelay: '160ms' }}>
-              Start Edushade Spark, Grow or Scale with a 14-day free trial. No commission on your sales, cancel anytime.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Edushade plans */}
-      <section className="pb-20 sm:pb-28">
-        <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
-          <div className="mb-10 text-center">
-            <h2 className={cn(displayTitleClass, 'mb-2 text-2xl font-bold text-(--ink) sm:text-3xl')}>Edushade LMS</h2>
-            <p className="text-sm text-(--ink-soft)">
-              Prices in {market.currency}, billed {market.billing === 'card_on_file' ? 'monthly or yearly' : 'monthly'}. Applicable taxes may be added at payment.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <div className="mb-10 text-center">
+        <h2 className={cn(displayTitleClass, 'mb-2 text-2xl font-bold text-(--ink) sm:text-3xl')}>Edushade LMS: {MARKET_COPY[market.code].title}</h2>
+        <p className="text-sm text-(--ink-soft)">
+          {MARKET_COPY[market.code].note} Applicable taxes may be added at payment.
+        </p>
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {market.plans.map((plan) => {
               const price = plan.monthlyPrice
               return (
@@ -90,7 +72,7 @@ function PricingPage() {
                 {price !== null ? (
                   <Link
                     to="/checkout"
-                    search={{ plan: plan.id }}
+                    search={{ plan: plan.id, market: market.code }}
                     className={plan.badge ? btnPrimaryClass('w-full justify-center') : btnSecondaryClass('w-full justify-center')}
                   >
                     Buy {plan.name}
@@ -103,7 +85,37 @@ function PricingPage() {
               </div>
               )
             })}
+      </div>
+    </div>
+  )
+}
+
+function PricingPage() {
+  return (
+    <main>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(249,115,22,0.08),transparent),radial-gradient(ellipse_60%_40%_at_100%_0%,rgba(59,130,246,0.04),transparent)] pb-12 pt-20 sm:pb-16 sm:pt-28">
+        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2">
+          <div className="h-[400px] w-[700px] rounded-full bg-[radial-gradient(ellipse,var(--glow-orange),transparent_70%)] opacity-40" />
+        </div>
+        <div className="relative z-10 mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className={cn(kickerClass, 'rise-in mb-3 inline-block')}>Pricing</span>
+            <h1 className={cn(displayTitleClass, 'rise-in mb-6 text-4xl font-extrabold leading-tight text-(--ink) sm:text-5xl')} style={{ animationDelay: '80ms' }}>
+              Simple, <span className={gradientTextClass('orange')}>Transparent Pricing</span>
+            </h1>
+            <p className="rise-in text-lg leading-relaxed text-(--ink-soft)" style={{ animationDelay: '160ms' }}>
+              Start Edushade Spark, Grow or Scale with a 14-day free trial. No commission on your sales, cancel anytime.
+            </p>
           </div>
+        </div>
+      </section>
+
+      {/* Edushade plans */}
+      <section className="pb-20 sm:pb-28">
+        <div className="mx-auto w-[min(1200px,calc(100%-2rem))] space-y-20 px-4">
+          <MarketPlans market={pricingMarkets.BD} />
+          <MarketPlans market={pricingMarkets.GLOBAL} />
         </div>
       </section>
 
@@ -143,9 +155,7 @@ function PricingPage() {
       <section className="py-16">
         <div className="mx-auto w-[min(1200px,calc(100%-2rem))] px-4">
           <p className="mx-auto max-w-3xl text-center text-sm leading-relaxed text-(--ink-muted)">
-            {market.billing === 'card_on_file'
-              ? 'Subscriptions renew automatically until cancelled.'
-              : 'Each billing period is a separate invoice with a payment link, and nothing is charged automatically.'}{' '}
+            USD subscriptions renew automatically until cancelled. BDT plans are paid per invoice through a payment link, and nothing is charged automatically.{' '}
             See our{' '}
             <Link to="/refund-policy" className="text-(--color-primary) underline">Refund & Cancellation Policy</Link>,{' '}
             <Link to="/delivery-policy" className="text-(--color-primary) underline">Service Delivery Policy</Link>, and{' '}

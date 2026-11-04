@@ -2,14 +2,15 @@ import { useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { ArrowRight, Check } from 'lucide-react'
 import { cn } from '#/lib/utils'
-import { findPlan, formatPrice, purchasablePlans, EDUSHADE_REGISTER_URL } from '#/data/pricing'
+import { findPlan, formatPrice, pricingMarkets, purchasablePlans, EDUSHADE_REGISTER_URL } from '#/data/pricing'
 import { loadPricingMarket } from '#/lib/region'
 import { legalContact } from '#/data/legal'
 import { btnPrimaryClass, cardClass, kickerClass, displayTitleClass } from '#/lib/styles'
 
 export const Route = createFileRoute('/checkout')({
-  validateSearch: (search: Record<string, unknown>): { plan?: string } => ({
+  validateSearch: (search: Record<string, unknown>): { plan?: string; market?: 'BD' | 'GLOBAL' } => ({
     plan: typeof search.plan === 'string' ? search.plan : undefined,
+    market: search.market === 'BD' || search.market === 'GLOBAL' ? search.market : undefined,
   }),
   loader: () => loadPricingMarket(),
   head: () => ({
@@ -23,8 +24,10 @@ export const Route = createFileRoute('/checkout')({
 })
 
 function CheckoutPage() {
-  const { plan: planId } = Route.useSearch()
-  const { market } = Route.useLoaderData()
+  const { plan: planId, market: chosenMarket } = Route.useSearch()
+  const { market: visitorMarket } = Route.useLoaderData()
+  // The price list the visitor clicked on; the country decides only when they did not pick one.
+  const market = chosenMarket ? pricingMarkets[chosenMarket] : visitorMarket
   const plans = purchasablePlans(market)
   const plan = findPlan(market, planId) ?? plans[1]
   const price = plan.monthlyPrice ?? 0
@@ -53,7 +56,7 @@ function CheckoutPage() {
                       <Link
                         key={option.id}
                         to="/checkout"
-                        search={{ plan: option.id }}
+                        search={{ plan: option.id, market: market.code }}
                         replace
                         className={cn(
                           'rounded-xl border p-4 transition-colors',
